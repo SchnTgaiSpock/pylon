@@ -22,6 +22,7 @@ import xyz.xenondevs.invui.gui.PagedGui;
 import xyz.xenondevs.invui.item.Item;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
@@ -121,28 +122,14 @@ public record AssemblingRecipe(
     }
 
     public static @Nullable AssemblingRecipe findRecipe(ItemStack[] items) {
-        for (AssemblingRecipe recipe : RECIPE_TYPE.getRecipes()) {
-            boolean hasAllIngredients = true;
-            for (RecipeInput.Item requiredItem : recipe.inputs) {
-                boolean hasIngredient = false;
-                for (ItemStack item : items) {
-                    if (item != null && requiredItem.matches(item)) {
-                        hasIngredient = true;
-                        break;
-                    }
-                }
-
-                if (!hasIngredient) {
-                    hasAllIngredients = false;
-                }
-            }
-
-            if (hasAllIngredients) {
-                return recipe;
-            }
-        }
-
-        return null;
+        return RecipeService.searchRecipes(
+                RECIPE_TYPE,
+                RecipeService.hashShapelessCraftingInput(Arrays.stream(items).toList()),
+                it -> RecipeService.matchesShapelessRecipe(
+                        Arrays.stream(items).toList(),
+                        it.inputs
+                )
+        );
     }
 
     @Override
