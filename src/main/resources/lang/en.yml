@@ -2345,7 +2345,7 @@ item:
       <diamond> 6x <yellow>Mud Bricks</yellow>
       <diamond> 12x <yellow>Mud Brick Wall</yellow>
 
-    waila: "Kiln | %temperature-bar% %temperature%%progress%"
+    waila: "Kiln | %temperature-bar%%progress%"
 
   slag:
     name: "Slag"

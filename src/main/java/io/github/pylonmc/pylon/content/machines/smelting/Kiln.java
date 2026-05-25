@@ -20,11 +20,13 @@ import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.builder.ItemStackBuilder;
 import io.github.pylonmc.rebar.util.MachineUpdateReason;
+import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.gui.GuiItems;
 import io.github.pylonmc.rebar.util.gui.ProgressItem;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -391,20 +393,22 @@ public class Kiln extends RebarBlock implements
         }
 
         return new WailaDisplay(getDefaultWailaTranslationKey().arguments(
-                RebarArgument.of("temperature-bar", PylonUtils.createBar(
-                        temperature / maxTemperature,
-                        20,
-                        PylonUtils.colorToTextColor(PylonUtils.colorFromTemperature(temperature)
-                ))),
-                RebarArgument.of("temperature", UnitFormat.CELSIUS.format(temperature).decimalPlaces(1)),
+                RebarArgument.of("temperature-bar", new ProgressBar()
+                        .proportion(temperature / maxTemperature)
+                        .barColor(PylonUtils.colorFromTemperature(temperature))
+                        .bars(30)
+                        .suffix(UnitFormat.CELSIUS.format(temperature).decimalPlaces(1))
+                        .build()
+                ),
                 RebarArgument.of("progress", getRecipeProgress() == null
                         ? Component.empty()
                         : Component.translatable("pylon.waila.kiln").arguments(
-                        RebarArgument.of("progress", PylonUtils.createProgressBar(
-                                1.0 - getRecipeProgress(),
-                                20,
-                                TextColor.color(255, 255, 255)
-                        ))
+                        RebarArgument.of("progress", new ProgressBar()
+                                .proportion(1.0 - getRecipeProgress())
+                                .barColor(NamedTextColor.WHITE)
+                                .suffix(UnitFormat.PERCENT.format(100 * (1 - getRecipeProgress())).decimalPlaces(1))
+                                .build()
+                        )
                 ))
         ));
     }
