@@ -41,7 +41,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FluidExperienceBottler extends RebarBlock implements RebarFluidBufferBlock, RebarGuiBlock, RebarVirtualInventoryBlock, RebarTickingBlock, RebarLogisticBlock, RebarSimpleMultiblock, RebarDirectionalBlock, RebarProcessor {
+public class FluidExperienceBottler extends RebarBlock implements
+        RebarFluidBufferBlock,
+        RebarInventoryBlock,
+        RebarVirtualInventoryBlock,
+        RebarTickingBlock,
+        RebarLogisticBlock,
+        RebarSimpleMultiblock,
+        RebarDirectionalBlock,
+        RebarProcessor {
 
     private static final int XP_AMOUNT = Settings.get(PylonKeys.LIQUID_XP_BOTTLE).getOrThrow("experience-amount", ConfigAdapter.INTEGER);
     public final double bottleProductionTime = getSettings().getOrThrow("bottle-production-time-seconds", ConfigAdapter.DOUBLE);
