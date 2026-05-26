@@ -3273,18 +3273,6 @@ public final class PylonItems {
     static {
         RebarItem.register(CleansingPotion.class, CLEANSING_POTION);
         PylonPages.TOOLS.addItem(CLEANSING_POTION);
-
-        // This recipe isn't configured because we currently have no way to set the healing potion data on it
-        ItemStack healingPotion = ItemStackBuilder.of(Material.SPLASH_POTION)
-                .set(DataComponentTypes.POTION_CONTENTS, PotionContents.potionContents()
-                        .potion(PotionType.HEALING)
-                        .build())
-                .build();
-        ShapelessRecipe recipe = new ShapelessRecipe(PylonKeys.CLEANSING_POTION, CLEANSING_POTION)
-                .addIngredient(healingPotion)
-                .addIngredient(DISINFECTANT);
-        recipe.setCategory(CraftingBookCategory.MISC);
-        RecipeType.VANILLA_SHAPELESS.addRecipe(recipe);
     }
 
     public static final ItemStack EXPERIENCE_DRAIN = ItemStackBuilder.rebar(Material.BLACKSTONE_SLAB, PylonKeys.EXPERIENCE_DRAIN)
@@ -3341,6 +3329,13 @@ public final class PylonItems {
     static {
         RebarItem.register(LiquidXPBottle.class, LIQUID_XP_BOTTLE_ULTRA);
         PylonPages.MAGIC.addItem(LIQUID_XP_BOTTLE_ULTRA);
+    }
+
+    public static final ItemStack SLEEPING_BAG = ItemStackBuilder.rebar(Material.RED_BED, PylonKeys.SLEEPING_BAG)
+            .build();
+    static {
+        RebarItem.register(RebarItem.class, SLEEPING_BAG, PylonKeys.SLEEPING_BAG);
+        PylonPages.MISCELLANEOUS.addItem(SLEEPING_BAG);
     }
 
     static {
