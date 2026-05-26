@@ -277,6 +277,15 @@ public final class PylonFluids {
         SPONGE_IRON_SLURRY.register();
     }
 
+    public static final RebarFluid LIQUID_XP = new RebarFluid(
+            pylonKey("liquid_xp"),
+            TextColor.fromHexString("#1dc420"),
+            Material.LIME_CONCRETE
+    ).addTag(FluidTemperature.NORMAL);
+    static {
+        LIQUID_XP.register();
+    }
+
     /**
      * Calling this function will run the static blocks
      */
