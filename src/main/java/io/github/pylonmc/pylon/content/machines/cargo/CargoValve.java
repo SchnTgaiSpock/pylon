@@ -4,7 +4,7 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.CargoRebarBlock;
 import io.github.pylonmc.rebar.block.base.DirectionalRebarBlock;
 import io.github.pylonmc.rebar.block.base.GuiRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.VirtualInventoryRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
@@ -47,7 +47,7 @@ import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 public class CargoValve extends RebarBlock implements
         DirectionalRebarBlock,
         GuiRebarBlock,
-        InteractRebarBlockHandler,
+        InteractableRebarBlockHandler,
         VirtualInventoryRebarBlock,
         CargoRebarBlock {
 

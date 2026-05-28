@@ -5,7 +5,7 @@ import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.DirectionalRebarBlock;
 import io.github.pylonmc.rebar.block.base.FluidRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.LogisticRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
@@ -44,7 +44,7 @@ public class HydraulicRefuelingStation extends RebarBlock implements
         FluidRebarBlock,
         DirectionalRebarBlock,
         LogisticRebarBlock,
-        InteractRebarBlockHandler {
+        InteractableRebarBlockHandler {
 
     @SuppressWarnings("unused")
     public HydraulicRefuelingStation(@NotNull Block block, @NotNull BlockCreateContext context) {

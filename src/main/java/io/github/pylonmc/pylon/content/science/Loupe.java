@@ -46,7 +46,7 @@ import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
 import io.github.pylonmc.rebar.item.base.handler.ConsumableRebarItemHandler;
-import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
 import io.github.pylonmc.rebar.item.research.Research;
 import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.registry.RegistryKey;
@@ -57,7 +57,7 @@ import io.papermc.paper.registry.tag.TagKey;
 
 
 @SuppressWarnings("UnstableApiUsage")
-public final class Loupe extends RebarItem implements InteractRebarItemHandler, ConsumableRebarItemHandler {
+public final class Loupe extends RebarItem implements InteractableRebarItemHandler, ConsumableRebarItemHandler {
 
     public static final NamespacedKey CONSUMED_KEY = pylonKey("consumed");
     public static final PersistentDataType<PersistentDataContainer, Map<NamespacedKey, Integer>> CONSUMED_TYPE =

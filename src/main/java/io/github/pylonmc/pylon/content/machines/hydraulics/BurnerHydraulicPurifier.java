@@ -9,7 +9,7 @@ import io.github.pylonmc.pylon.content.components.ItemInputHatch;
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
@@ -43,7 +43,7 @@ public class BurnerHydraulicPurifier extends RebarBlock implements
         DirectionalRebarBlock,
         TickingRebarBlock,
         ProcessorRebarBlock,
-        InteractRebarBlockHandler,
+        InteractableRebarBlockHandler,
         HydraulicPurifier {
 
     public static final Vector3i ITEM_INPUT = new Vector3i(0, 0, 2);

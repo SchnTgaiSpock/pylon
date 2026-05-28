@@ -1,7 +1,7 @@
 package io.github.pylonmc.pylon.content.machines.storage;
 
 import io.github.pylonmc.rebar.block.RebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.LogisticRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
@@ -36,7 +36,7 @@ import java.util.List;
 import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
 
-public class Silo extends RebarBlock implements LogisticRebarBlock, InteractRebarBlockHandler {
+public class Silo extends RebarBlock implements LogisticRebarBlock, InteractableRebarBlockHandler {
 
     public static final NamespacedKey STACK_KEY = pylonKey("stack");
     public static final NamespacedKey AMOUNT_KEY = pylonKey("amount");

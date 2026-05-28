@@ -4,7 +4,7 @@ import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
 import io.github.pylonmc.rebar.item.research.Research;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import net.kyori.adventure.text.Component;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class ResearchPack extends RebarItem implements InteractRebarItemHandler {
+public class ResearchPack extends RebarItem implements InteractableRebarItemHandler {
 
     public final int points = getSettings().getOrThrow("points", ConfigAdapter.INTEGER);
 

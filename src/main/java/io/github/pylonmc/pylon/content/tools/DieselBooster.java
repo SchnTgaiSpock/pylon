@@ -10,7 +10,7 @@ import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import net.kyori.adventure.text.format.TextColor;
 
@@ -26,7 +26,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
-public class DieselBooster extends RebarItem implements InteractRebarItemHandler, DieselRefuelable {
+public class DieselBooster extends RebarItem implements InteractableRebarItemHandler, DieselRefuelable {
 
     public static final double DIESEL_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_STEEL).getOrThrow("capacity", ConfigAdapter.DOUBLE) * 2;
     

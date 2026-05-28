@@ -9,7 +9,7 @@ import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.BlockStorage;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.handler.BlockBreakRebarBlockHandler;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.RecipeProcessorRebarBlock;
 import io.github.pylonmc.rebar.block.base.SimpleRebarMultiblock;
 import io.github.pylonmc.rebar.block.base.TickingRebarBlock;
@@ -43,7 +43,7 @@ import org.joml.Vector3i;
 import java.util.*;
 
 public class ShimmerAltar extends RebarBlock
-        implements SimpleRebarMultiblock, InteractRebarBlockHandler, TickingRebarBlock, RecipeProcessorRebarBlock<ShimmerAltarRecipe>, BlockBreakRebarBlockHandler {
+        implements SimpleRebarMultiblock, InteractableRebarBlockHandler, TickingRebarBlock, RecipeProcessorRebarBlock<ShimmerAltarRecipe>, BlockBreakRebarBlockHandler {
 
     public static final int PEDESTAL_COUNT = 8;
 

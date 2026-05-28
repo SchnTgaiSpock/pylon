@@ -14,7 +14,7 @@ import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
 import io.github.pylonmc.rebar.item.RebarItemSchema;
-import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
 import io.github.pylonmc.rebar.util.RandomizedSound;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import net.kyori.adventure.text.Component;
@@ -33,7 +33,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-public class HydraulicCannon extends RebarItem implements InteractRebarItemHandler, HydraulicRefuelable {
+public class HydraulicCannon extends RebarItem implements InteractableRebarItemHandler, HydraulicRefuelable {
 
     public static final double HYDRAULIC_FLUID_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);
     public static final double DIRTY_HYDRAULIC_FLUID_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);

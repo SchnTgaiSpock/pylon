@@ -9,7 +9,7 @@ import io.github.pylonmc.rebar.block.BlockStorage;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.handler.CauldronRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.DirectionalRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.LogisticRebarBlock;
 import io.github.pylonmc.rebar.block.base.TickingRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
@@ -54,7 +54,7 @@ import java.util.Map;
 import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
 public final class Crucible extends RebarBlock implements
-        InteractRebarBlockHandler,
+        InteractableRebarBlockHandler,
         FluidTankWithDisplayEntity,
         DirectionalRebarBlock,
         CauldronRebarBlockHandler,

@@ -8,7 +8,7 @@ import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.base.handler.BlockBreakRebarBlockHandler;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.Settings;
@@ -52,7 +52,7 @@ import java.util.Map;
 
 public class Grindstone extends RebarBlock implements
         SimpleRebarMultiblock,
-        InteractRebarBlockHandler,
+        InteractableRebarBlockHandler,
         BlockBreakRebarBlockHandler,
         LogisticRebarBlock,
         RecipeProcessorRebarBlock<GrindstoneRecipe> {

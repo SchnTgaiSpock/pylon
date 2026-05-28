@@ -4,7 +4,7 @@ import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.DirectionalRebarBlock;
 import io.github.pylonmc.rebar.block.base.FluidTankRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
@@ -44,7 +44,7 @@ import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
 
 public class FluidValve extends RebarBlock
-        implements FluidTankRebarBlock, InteractRebarBlockHandler, DirectionalRebarBlock {
+        implements FluidTankRebarBlock, InteractableRebarBlockHandler, DirectionalRebarBlock {
 
     public static final NamespacedKey ENABLED_KEY = pylonKey("enabled");
 

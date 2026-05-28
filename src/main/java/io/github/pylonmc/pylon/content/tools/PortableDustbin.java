@@ -2,7 +2,7 @@ package io.github.pylonmc.pylon.content.tools;
 
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class PortableDustbin extends RebarItem implements InteractRebarItemHandler {
+public class PortableDustbin extends RebarItem implements InteractableRebarItemHandler {
 
     public PortableDustbin(@NotNull ItemStack stack) {
         super(stack);
