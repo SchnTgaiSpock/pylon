@@ -4,9 +4,9 @@ import com.destroystokyo.paper.ParticleBuilder;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.RebarBlockInteractor;
-import io.github.pylonmc.rebar.item.base.RebarBucket;
-import io.github.pylonmc.rebar.item.base.RebarDispensable;
+import io.github.pylonmc.rebar.item.base.handler.BlockInteractRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.BucketRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.DispenseRebarItemHandler;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class WateringCan extends RebarItem implements RebarBlockInteractor, RebarBucket, RebarDispensable {
+public class WateringCan extends RebarItem implements BlockInteractRebarItemHandler, BucketRebarItemHandler, DispenseRebarItemHandler {
 
     public final WateringSettings settings = WateringSettings.fromConfig(getSettings());
 
@@ -42,7 +42,7 @@ public class WateringCan extends RebarItem implements RebarBlockInteractor, Reba
     }
 
     @Override @MultiHandler(priorities = { EventPriority.NORMAL, EventPriority.MONITOR })
-    public void onUsedToClickBlock(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
+    public void onInteractWithBlock(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
         if (!event.getAction().isRightClick() || event.useItemInHand() == Event.Result.DENY) {
             return;
         }
@@ -56,7 +56,7 @@ public class WateringCan extends RebarItem implements RebarBlockInteractor, Reba
     }
 
     @Override @MultiHandler(priorities = EventPriority.LOWEST)
-    public void onBucketFilled(@NotNull PlayerBucketFillEvent event, @NotNull EventPriority priority) {
+    public void onBucketFill(@NotNull PlayerBucketFillEvent event, @NotNull EventPriority priority) {
         event.setCancelled(true);
     }
 

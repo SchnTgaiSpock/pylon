@@ -3,8 +3,8 @@ package io.github.pylonmc.pylon.content.armor;
 import io.github.pylonmc.pylon.PylonKeys;
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.RebarArmor;
-import io.github.pylonmc.rebar.item.base.RebarRepairable;
+import io.github.pylonmc.rebar.item.base.RebarArmorItem;
+import io.github.pylonmc.rebar.item.base.RebarRepairableItem;
 import net.kyori.adventure.key.Key;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class SteelArmor extends RebarItem implements RebarArmor, RebarRepairable {
+public class SteelArmor extends RebarItem implements RebarArmorItem, RebarRepairableItem {
     public SteelArmor(@NotNull ItemStack stack) {
         super(stack);
     }

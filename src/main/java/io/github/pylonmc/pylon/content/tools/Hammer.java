@@ -13,7 +13,7 @@ import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.RebarBlockInteractor;
+import io.github.pylonmc.rebar.item.base.handler.BlockInteractRebarItemHandler;
 import io.github.pylonmc.rebar.util.MiningLevel;
 import io.github.pylonmc.rebar.util.RandomizedSound;
 import io.github.pylonmc.rebar.util.RebarUtils;
@@ -50,7 +50,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-public class Hammer extends RebarItem implements RebarBlockInteractor {
+public class Hammer extends RebarItem implements BlockInteractRebarItemHandler {
     private static final Map<BlockPosition, Pair<HammerRecipe, UUID>> lastHammeredItems = new HashMap<>();
     public static final Random random = new Random();
 
@@ -170,7 +170,7 @@ public class Hammer extends RebarItem implements RebarBlockInteractor {
 
     @Override
     @MultiHandler(priorities = {EventPriority.NORMAL, EventPriority.MONITOR})
-    public void onUsedToClickBlock(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
+    public void onInteractWithBlock(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
         if (event.getHand() != EquipmentSlot.HAND
                 || event.getPlayer().isSneaking()
                 || event.useItemInHand() == Event.Result.DENY) {
