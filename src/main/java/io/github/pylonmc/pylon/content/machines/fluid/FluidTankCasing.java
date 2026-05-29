@@ -2,7 +2,7 @@ package io.github.pylonmc.pylon.content.machines.fluid;
 
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class FluidTankCasing extends RebarBlock implements InteractableRebarBlockHandler {
+public class FluidTankCasing extends RebarBlock implements InteractRebarBlockHandler {
 
     public final double capacity = getSettings().getOrThrow("capacity", ConfigAdapter.DOUBLE);
     public final List<FluidTemperature> allowedTemperatures = getSettings().getOrThrow(

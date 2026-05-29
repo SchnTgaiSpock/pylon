@@ -6,7 +6,7 @@ import io.github.pylonmc.pylon.recipes.TableSawRecipe;
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
@@ -43,7 +43,7 @@ import java.util.List;
 
 public class HydraulicTableSaw extends RebarBlock implements
         FluidBufferRebarBlock,
-        InteractableRebarBlockHandler,
+        InteractRebarBlockHandler,
         TickingRebarBlock,
         DirectionalRebarBlock,
         LogisticRebarBlock,

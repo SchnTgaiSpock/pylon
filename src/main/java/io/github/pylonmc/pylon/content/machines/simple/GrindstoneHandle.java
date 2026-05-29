@@ -5,7 +5,7 @@ import io.github.pylonmc.pylon.PylonKeys;
 import io.github.pylonmc.pylon.recipes.GrindstoneRecipe;
 import io.github.pylonmc.rebar.block.BlockStorage;
 import io.github.pylonmc.rebar.block.RebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
@@ -23,7 +23,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.jetbrains.annotations.NotNull;
 
 
-public class GrindstoneHandle extends RebarBlock implements InteractableRebarBlockHandler {
+public class GrindstoneHandle extends RebarBlock implements InteractRebarBlockHandler {
     
     public final RandomizedSound sound = Settings.get(PylonKeys.GRINDSTONE).getOrThrow("sound", ConfigAdapter.RANDOMIZED_SOUND);
     public final RandomizedSound failSound = Settings.get(PylonKeys.GRINDSTONE).getOrThrow("fail-sound", ConfigAdapter.RANDOMIZED_SOUND);

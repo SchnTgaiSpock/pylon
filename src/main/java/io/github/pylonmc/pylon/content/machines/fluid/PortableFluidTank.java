@@ -2,7 +2,7 @@ package io.github.pylonmc.pylon.content.machines.fluid;
 
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
 
-public class PortableFluidTank extends RebarBlock implements FluidTankWithDisplayEntity, InteractableRebarBlockHandler {
+public class PortableFluidTank extends RebarBlock implements FluidTankWithDisplayEntity, InteractRebarBlockHandler {
 
     public static class Item extends RebarItem {
         public static final NamespacedKey FLUID_AMOUNT_KEY = pylonKey("fluid_amount");

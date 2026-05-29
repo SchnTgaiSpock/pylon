@@ -9,7 +9,7 @@ import io.github.pylonmc.rebar.block.BlockStorage;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.handler.CauldronRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.DirectionalRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.fluid.FluidPointType;
@@ -44,7 +44,7 @@ import java.util.List;
 
 public final class MixingPot extends RebarBlock implements
         DirectionalRebarBlock,
-        InteractableRebarBlockHandler,
+        InteractRebarBlockHandler,
         FluidTankWithDisplayEntity,
         CauldronRebarBlockHandler {
 

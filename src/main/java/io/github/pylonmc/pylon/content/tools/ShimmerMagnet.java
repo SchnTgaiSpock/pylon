@@ -5,7 +5,7 @@ import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
 import io.github.pylonmc.rebar.item.base.InventoryTickerRebarItem;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.papermc.paper.datacomponent.DataComponentTypes;
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import java.util.List;
 
-public class ShimmerMagnet extends RebarItem implements InteractableRebarItemHandler, InventoryTickerRebarItem {
+public class ShimmerMagnet extends RebarItem implements InteractRebarItemHandler, InventoryTickerRebarItem {
     @Getter
     private final double pickupDistance = getSettings().getOrThrow("pickup-distance", ConfigAdapter.DOUBLE);
     @Getter

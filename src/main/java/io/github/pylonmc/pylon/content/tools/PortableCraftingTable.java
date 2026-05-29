@@ -2,7 +2,7 @@ package io.github.pylonmc.pylon.content.tools;
 
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.handler.InteractableRebarItemHandler;
+import io.github.pylonmc.rebar.item.base.handler.InteractRebarItemHandler;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MenuType;
 import org.jetbrains.annotations.NotNull;
 
-public class PortableCraftingTable extends RebarItem implements InteractableRebarItemHandler {
+public class PortableCraftingTable extends RebarItem implements InteractRebarItemHandler {
 
     public PortableCraftingTable(@NotNull ItemStack stack) {
         super(stack);

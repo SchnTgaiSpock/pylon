@@ -5,7 +5,7 @@ import io.github.pylonmc.pylon.PylonFluids;
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
@@ -51,7 +51,7 @@ public class HydraulicBreaker extends RebarBlock implements
         VirtualInventoryRebarBlock,
         LogisticRebarBlock,
         ProcessorRebarBlock,
-        InteractableRebarBlockHandler
+        InteractRebarBlockHandler
 {
 
     public final double hydraulicFluidPerBlock = getSettings().getOrThrow("hydraulic-fluid-per-block", ConfigAdapter.DOUBLE);

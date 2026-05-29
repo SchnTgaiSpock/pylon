@@ -3,7 +3,7 @@ package io.github.pylonmc.pylon.content.building;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.handler.BlockBreakRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.EntityHolderRebarBlock;
-import io.github.pylonmc.rebar.block.base.handler.InteractableRebarBlockHandler;
+import io.github.pylonmc.rebar.block.base.handler.InteractRebarBlockHandler;
 import io.github.pylonmc.rebar.block.base.LogisticRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
@@ -35,7 +35,7 @@ import static java.lang.Math.PI;
 
 public class Pedestal extends RebarBlock implements
         EntityHolderRebarBlock,
-        InteractableRebarBlockHandler,
+        InteractRebarBlockHandler,
         BlockBreakRebarBlockHandler,
         LogisticRebarBlock {
 
