@@ -10,7 +10,6 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
@@ -52,11 +51,11 @@ public final class BronzeAnvil extends RebarBlock implements
         RebarInteractBlock,
         RebarFallingBlock {
 
-    public static final int TICK_INTERVAL = Settings.get(PylonKeys.BRONZE_ANVIL).getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public static final float COOL_CHANCE = Settings.get(PylonKeys.BRONZE_ANVIL).getOrThrow("cool-chance", ConfigAdapter.FLOAT);
-    public static final int TOLERANCE = Settings.get(PylonKeys.BRONZE_ANVIL).getOrThrow("tolerance", ConfigAdapter.INTEGER);
-    public static final Sound HAMMER_SOUND = Settings.get(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.hammer", ConfigAdapter.SOUND);
-    public static final Sound TONGS_SOUND = Settings.get(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.tongs", ConfigAdapter.SOUND);
+    public static final int TICK_INTERVAL = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public static final float COOL_CHANCE = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("cool-chance", ConfigAdapter.FLOAT);
+    public static final int TOLERANCE = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("tolerance", ConfigAdapter.INTEGER);
+    public static final Sound HAMMER_SOUND = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.hammer", ConfigAdapter.SOUND);
+    public static final Sound TONGS_SOUND = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.tongs", ConfigAdapter.SOUND);
 
     public static final NamespacedKey DIRECTION_FALLING = pylonKey("direction_falling");
     public static final NamespacedKey STORED_ITEM = pylonKey("stored_item");

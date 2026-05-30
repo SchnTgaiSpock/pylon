@@ -9,7 +9,6 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
 import io.github.pylonmc.rebar.entity.display.transform.TransformBuilder;
@@ -55,7 +54,7 @@ public class Grindstone extends RebarBlock implements
         RebarLogisticBlock,
         RebarRecipeProcessor<GrindstoneRecipe> {
 
-    public static final int CYCLE_DURATION_TICKS = Settings.get(PylonKeys.GRINDSTONE)
+    public static final int CYCLE_DURATION_TICKS = getSettings(PylonKeys.GRINDSTONE)
             .getOrThrow("cycle-duration-ticks",ConfigAdapter.INTEGER);
 
     @SuppressWarnings("unused")

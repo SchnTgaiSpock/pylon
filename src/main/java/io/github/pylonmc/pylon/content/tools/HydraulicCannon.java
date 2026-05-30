@@ -1,13 +1,10 @@
 package io.github.pylonmc.pylon.content.tools;
 
 import io.github.pylonmc.pylon.PylonFluids;
-import io.github.pylonmc.pylon.PylonItems;
 import io.github.pylonmc.pylon.PylonKeys;
 import io.github.pylonmc.pylon.content.machines.hydraulics.HydraulicRefuelable;
 import io.github.pylonmc.pylon.util.DisplayProjectile;
 import io.github.pylonmc.pylon.util.PylonUtils;
-import io.github.pylonmc.rebar.config.Config;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.entity.EntityStorage;
@@ -36,28 +33,26 @@ import java.util.List;
 
 public class HydraulicCannon extends RebarItem implements RebarInteractor, HydraulicRefuelable {
 
-    public static final double HYDRAULIC_FLUID_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);
-    public static final double DIRTY_HYDRAULIC_FLUID_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);
+    public static final double HYDRAULIC_FLUID_CAPACITY = getSettings(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);
+    public static final double DIRTY_HYDRAULIC_FLUID_CAPACITY = getSettings(PylonKeys.PORTABLE_FLUID_TANK_COPPER).getOrThrow("capacity", ConfigAdapter.DOUBLE);
 
 
-    private final Config settings = getSettings();
-
-    public final int cooldownTicks = settings.getOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
-    public final double recoilVelocity = settings.getOrThrow("recoil-velocity", ConfigAdapter.DOUBLE);
-    public final double hydraulicFluidPerShot = settings.getOrThrow("hydraulic-fluid-per-shot", ConfigAdapter.DOUBLE);
-    public final Material projectileMaterial = settings.getOrThrow("projectile.material", ConfigAdapter.MATERIAL);
-    public final float projectileThickness = settings.getOrThrow("projectile.thickness", ConfigAdapter.FLOAT);
-    public final float projectileLength = settings.getOrThrow("projectile.length", ConfigAdapter.FLOAT);
-    public final float projectileSpeedBlocksPerSecond = settings.getOrThrow("projectile.speed-blocks-per-second", ConfigAdapter.FLOAT);
-    public final double projectileDamage = settings.getOrThrow("projectile.damage", ConfigAdapter.DOUBLE);
-    public final int projectileTickInterval = settings.getOrThrow("projectile.tick-interval", ConfigAdapter.INTEGER);
-    public final int projectileLifetimeTicks = settings.getOrThrow("projectile.lifetime-ticks", ConfigAdapter.INTEGER);
-    public final RandomizedSound sound = settings.getOrThrow("sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound emptySound = settings.getOrThrow("empty-sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound fullSound = settings.getOrThrow("full-sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound noAmmoSound = settings.getOrThrow("no-ammo-sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound hitSound = settings.getOrThrow("hit-sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound playerHitSound = settings.getOrThrow("player-hit-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final int cooldownTicks = getSettings().getOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
+    public final double recoilVelocity = getSettings().getOrThrow("recoil-velocity", ConfigAdapter.DOUBLE);
+    public final double hydraulicFluidPerShot = getSettings().getOrThrow("hydraulic-fluid-per-shot", ConfigAdapter.DOUBLE);
+    public final Material projectileMaterial = getSettings().getOrThrow("projectile.material", ConfigAdapter.MATERIAL);
+    public final float projectileThickness = getSettings().getOrThrow("projectile.thickness", ConfigAdapter.FLOAT);
+    public final float projectileLength = getSettings().getOrThrow("projectile.length", ConfigAdapter.FLOAT);
+    public final float projectileSpeedBlocksPerSecond = getSettings().getOrThrow("projectile.speed-blocks-per-second", ConfigAdapter.FLOAT);
+    public final double projectileDamage = getSettings().getOrThrow("projectile.damage", ConfigAdapter.DOUBLE);
+    public final int projectileTickInterval = getSettings().getOrThrow("projectile.tick-interval", ConfigAdapter.INTEGER);
+    public final int projectileLifetimeTicks = getSettings().getOrThrow("projectile.lifetime-ticks", ConfigAdapter.INTEGER);
+    public final RandomizedSound sound = getSettings().getOrThrow("sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound emptySound = getSettings().getOrThrow("empty-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound fullSound = getSettings().getOrThrow("full-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound noAmmoSound = getSettings().getOrThrow("no-ammo-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound hitSound = getSettings().getOrThrow("hit-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound playerHitSound = getSettings().getOrThrow("player-hit-sound", ConfigAdapter.RANDOMIZED_SOUND);
 
     @SuppressWarnings("unused")
     public HydraulicCannon(@NotNull ItemStack stack) {

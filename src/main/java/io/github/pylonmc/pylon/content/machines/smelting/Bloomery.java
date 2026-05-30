@@ -10,13 +10,12 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Settings;
+import io.github.pylonmc.rebar.config.ConfigSection;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
 import io.github.pylonmc.rebar.entity.display.transform.TransformBuilder;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.RebarItemSchema;
 import io.github.pylonmc.rebar.item.research.Research;
 import io.github.pylonmc.rebar.logistics.LogisticGroupType;
 import io.github.pylonmc.rebar.logistics.slot.ItemDisplayLogisticSlot;
@@ -54,8 +53,8 @@ public final class Bloomery extends RebarBlock implements
         RebarLogisticBlock,
         RebarBreakHandler {
 
-    public static final int TICK_INTERVAL = Settings.get(PylonKeys.BLOOMERY).getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public static final float HEAT_CHANCE = Settings.get(PylonKeys.BLOOMERY).getOrThrow("heat-chance", ConfigAdapter.FLOAT);
+    public static final int TICK_INTERVAL = getSettings(PylonKeys.BLOOMERY).getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public static final float HEAT_CHANCE = getSettings(PylonKeys.BLOOMERY).getOrThrow("heat-chance", ConfigAdapter.FLOAT);
 
     @SuppressWarnings("unused")
     public Bloomery(@NotNull Block block, @NotNull BlockCreateContext context) {

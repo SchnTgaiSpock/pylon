@@ -11,12 +11,10 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.fluid.RebarFluid;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.builder.ItemStackBuilder;
 import io.github.pylonmc.rebar.logistics.LogisticGroupType;
 import io.github.pylonmc.rebar.util.MachineUpdateReason;
 import io.github.pylonmc.rebar.util.RebarUtils;
@@ -51,7 +49,7 @@ public class FluidExperienceBottler extends RebarBlock implements
         RebarDirectionalBlock,
         RebarProcessor {
 
-    private static final int XP_AMOUNT = Settings.get(PylonKeys.LIQUID_XP_BOTTLE).getOrThrow("experience-amount", ConfigAdapter.INTEGER);
+    private static final int XP_AMOUNT = getSettings(PylonKeys.LIQUID_XP_BOTTLE).getOrThrow("experience-amount", ConfigAdapter.INTEGER);
     public final double bottleProductionTime = getSettings().getOrThrow("bottle-production-time-seconds", ConfigAdapter.DOUBLE);
     public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
 

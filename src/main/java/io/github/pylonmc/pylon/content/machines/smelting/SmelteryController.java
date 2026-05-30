@@ -4,6 +4,7 @@ import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
 import com.google.common.base.Preconditions;
 
+import io.github.pylonmc.rebar.config.ConfigSection;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.Style;
 
@@ -40,8 +41,6 @@ import io.github.pylonmc.rebar.block.base.RebarMultiblock;
 import io.github.pylonmc.rebar.block.base.RebarTickingBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Config;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.entity.display.transform.TransformUtil;
@@ -71,7 +70,7 @@ public final class SmelteryController extends SmelteryComponent
     private static final NamespacedKey TEMPERATURE_KEY = pylonKey("temperature");
     private static final NamespacedKey FLUIDS_KEY = pylonKey("fluids");
 
-    private static final Config settings = Settings.get(PylonKeys.SMELTERY_CONTROLLER);
+    private static final ConfigSection settings = getSettings(PylonKeys.SMELTERY_CONTROLLER);
     public static final int TICK_INTERVAL = settings.getOrThrow("tick-interval", ConfigAdapter.INTEGER);
     public static final double FLUID_REACTION_PER_TICK = settings.getOrThrow("fluid-reaction-per-tick", ConfigAdapter.DOUBLE);
     public static final double HEATING_FACTOR = settings.getOrThrow("heating-factor", ConfigAdapter.DOUBLE);
@@ -413,7 +412,7 @@ public final class SmelteryController extends SmelteryComponent
 
     // <editor-fold desc="Fluid display" defaultstate="collapsed">
     private final List<TextDisplay> pixels = new ArrayList<>();
-    private static final int RESOLUTION = Settings.get(PylonKeys.SMELTERY_CONTROLLER).getOrThrow("display.resolution", ConfigAdapter.INTEGER);
+    private static final int RESOLUTION = settings.getOrThrow("display.resolution", ConfigAdapter.INTEGER);
     private static final int PIXELS_PER_SIDE = 3 * RESOLUTION;
 
     private static final SimplexOctaveGenerator LAVA_NOISE = new SimplexOctaveGenerator(ThreadLocalRandom.current().nextLong(), 4);

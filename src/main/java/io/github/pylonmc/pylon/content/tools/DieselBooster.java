@@ -4,7 +4,6 @@ import io.github.pylonmc.pylon.PylonFluids;
 import io.github.pylonmc.pylon.PylonKeys;
 import io.github.pylonmc.pylon.content.machines.diesel.DieselRefuelable;
 import io.github.pylonmc.pylon.util.PylonUtils;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
@@ -28,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class DieselBooster extends RebarItem implements RebarInteractor, DieselRefuelable {
 
-    public static final double DIESEL_CAPACITY = Settings.get(PylonKeys.PORTABLE_FLUID_TANK_STEEL).getOrThrow("capacity", ConfigAdapter.DOUBLE) * 2;
+    public static final double DIESEL_CAPACITY = getSettings(PylonKeys.PORTABLE_FLUID_TANK_STEEL).getOrThrow("capacity", ConfigAdapter.DOUBLE) * 2;
     
     public final double dieselPerBoost = getSettings().getOrThrow("diesel-per-boost", ConfigAdapter.DOUBLE);
 

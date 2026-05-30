@@ -11,9 +11,8 @@ import io.github.pylonmc.rebar.block.base.RebarFlowerPot;
 import io.github.pylonmc.rebar.block.base.RebarFluidBufferBlock;
 import io.github.pylonmc.rebar.block.base.RebarTickingBlock;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Config;
+import io.github.pylonmc.rebar.config.ConfigSection;
 import io.github.pylonmc.rebar.config.RebarConfig;
-import io.github.pylonmc.rebar.config.Settings;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.event.PreRebarBlockPlaceEvent;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
@@ -42,7 +41,7 @@ import java.util.List;
 public class Sprinkler extends RebarBlock
         implements RebarFluidBufferBlock, RebarTickingBlock, RebarFlowerPot {
 
-    private static final Config settings = Settings.get(PylonKeys.SPRINKLER);
+    private static final ConfigSection settings = getSettings(PylonKeys.SPRINKLER);
     public static final WateringSettings SETTINGS = WateringSettings.fromConfig(settings);
     public static final int TICK_INTERVAL = settings.getOrThrow("tick-interval", ConfigAdapter.INTEGER);
     public static final double WATER_PER_SECOND = settings.getOrThrow("water-per-second", ConfigAdapter.INTEGER);
