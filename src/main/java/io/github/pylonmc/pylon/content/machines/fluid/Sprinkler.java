@@ -41,13 +41,16 @@ import java.util.List;
 public class Sprinkler extends RebarBlock
         implements RebarFluidBufferBlock, RebarTickingBlock, RebarFlowerPot {
 
-    private static final ConfigSection settings = getSettings(PylonKeys.SPRINKLER);
-    public static final WateringSettings SETTINGS = WateringSettings.fromConfig(settings);
-    public static final int TICK_INTERVAL = settings.getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public static final double WATER_PER_SECOND = settings.getOrThrow("water-per-second", ConfigAdapter.INTEGER);
-    public static final double BUFFER = settings.getOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final WateringSettings wateringSettings = WateringSettings.fromConfig(getSettings());
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double waterPerSecond = getSettingOrThrow("water-per-second", ConfigAdapter.INTEGER);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
+
+        public final WateringSettings wateringSettings = WateringSettings.fromConfig(getSettings());
+        public final double waterPerSecond = getSettingOrThrow("water-per-second", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);
@@ -56,9 +59,9 @@ public class Sprinkler extends RebarBlock
         @Override
         public @NotNull List<RebarArgument> getPlaceholders() {
             return List.of(
-                    RebarArgument.of("range", UnitFormat.BLOCKS.format(SETTINGS.horizontalRange())),
-                    RebarArgument.of("buffer", UnitFormat.MILLIBUCKETS.format(BUFFER)),
-                    RebarArgument.of("water_consumption", UnitFormat.MILLIBUCKETS_PER_SECOND.format(WATER_PER_SECOND))
+                    RebarArgument.of("range", UnitFormat.BLOCKS.format(wateringSettings.horizontalRange())),
+                    RebarArgument.of("buffer", UnitFormat.MILLIBUCKETS.format(buffer)),
+                    RebarArgument.of("water_consumption", UnitFormat.MILLIBUCKETS_PER_SECOND.format(waterPerSecond))
             );
         }
     }
@@ -66,9 +69,9 @@ public class Sprinkler extends RebarBlock
     @SuppressWarnings("unused")
     public Sprinkler(@NotNull Block block, @NotNull BlockCreateContext context) {
         super(block, context);
-        setTickInterval(TICK_INTERVAL);
+        setTickInterval(tickInterval);
         createFluidPoint(FluidPointType.INPUT, BlockFace.UP, -0.15F);
-        createFluidBuffer(PylonFluids.WATER, BUFFER, true, false);
+        createFluidBuffer(PylonFluids.WATER, buffer, true, false);
     }
 
     @SuppressWarnings("unused")
@@ -83,9 +86,9 @@ public class Sprinkler extends RebarBlock
 
     @Override
     public void tick() {
-        if (fluidAmount(PylonFluids.WATER) > WATER_PER_SECOND * RebarConfig.FLUID_TICK_INTERVAL / 20.0) {
-            WateringCan.water(getBlock(), SETTINGS);
-            removeFluid(PylonFluids.WATER, WATER_PER_SECOND * RebarConfig.FLUID_TICK_INTERVAL / 20.0);
+        if (fluidAmount(PylonFluids.WATER) > waterPerSecond * RebarConfig.FLUID_TICK_INTERVAL / 20.0) {
+            WateringCan.water(getBlock(), wateringSettings);
+            removeFluid(PylonFluids.WATER, waterPerSecond * RebarConfig.FLUID_TICK_INTERVAL / 20.0);
         }
     }
 
@@ -102,14 +105,17 @@ public class Sprinkler extends RebarBlock
     }
 
     public static class SprinklerPlaceListener implements Listener {
+
+        public final WateringSettings wateringSettings = WateringSettings.fromConfig(ConfigSection.fromSettings(PylonKeys.SPRINKLER));
+
         @EventHandler
-        private static void handle(@NotNull PreRebarBlockPlaceEvent event) {
+        private void handle(@NotNull PreRebarBlockPlaceEvent event) {
             if (event.getBlockSchema().getKey() != PylonKeys.SPRINKLER) {
                 return;
             }
 
-            int horizontalRadiusToCheck = 2 * SETTINGS.horizontalRange();
-            int verticalRadiusToCheck = 2 * SETTINGS.verticalRange();
+            int horizontalRadiusToCheck = 2 * wateringSettings.horizontalRange();
+            int verticalRadiusToCheck = 2 * wateringSettings.verticalRange();
             for (int x = -horizontalRadiusToCheck; x <= horizontalRadiusToCheck; x++) {
                 for (int z = -horizontalRadiusToCheck; z <= horizontalRadiusToCheck; z++) {
                     for (int y = -verticalRadiusToCheck; y <= verticalRadiusToCheck; y++) {

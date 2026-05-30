@@ -24,8 +24,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class GrindstoneHandle extends RebarBlock implements RebarInteractBlock {
     
-    public final RandomizedSound sound = getSettings(PylonKeys.GRINDSTONE).getOrThrow("sound", ConfigAdapter.RANDOMIZED_SOUND);
-    public final RandomizedSound failSound = getSettings(PylonKeys.GRINDSTONE).getOrThrow("fail-sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound sound = getSettingOrThrow("sound", ConfigAdapter.RANDOMIZED_SOUND);
+    public final RandomizedSound failSound = getSettingOrThrow("fail-sound", ConfigAdapter.RANDOMIZED_SOUND);
 
     @SuppressWarnings("unused")
     public GrindstoneHandle(Block block, BlockCreateContext context) {

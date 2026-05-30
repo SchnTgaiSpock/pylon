@@ -51,11 +51,11 @@ public final class BronzeAnvil extends RebarBlock implements
         RebarInteractBlock,
         RebarFallingBlock {
 
-    public static final int TICK_INTERVAL = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public static final float COOL_CHANCE = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("cool-chance", ConfigAdapter.FLOAT);
-    public static final int TOLERANCE = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("tolerance", ConfigAdapter.INTEGER);
-    public static final Sound HAMMER_SOUND = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.hammer", ConfigAdapter.SOUND);
-    public static final Sound TONGS_SOUND = getSettings(PylonKeys.BRONZE_ANVIL).getOrThrow("sound.tongs", ConfigAdapter.SOUND);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final float coolChance = getSettingOrThrow("cool-chance", ConfigAdapter.FLOAT);
+    public final int tolerance = getSettingOrThrow("tolerance", ConfigAdapter.INTEGER);
+    public final Sound hammerSound = getSettingOrThrow("sound.hammer", ConfigAdapter.SOUND);
+    public final Sound tongsSound = getSettingOrThrow("sound.tongs", ConfigAdapter.SOUND);
 
     public static final NamespacedKey DIRECTION_FALLING = pylonKey("direction_falling");
     public static final NamespacedKey STORED_ITEM = pylonKey("stored_item");
@@ -75,7 +75,7 @@ public final class BronzeAnvil extends RebarBlock implements
                         .rotateLocalY(getItemRotation(getBlockFace())))
                 .build(getBlock().getLocation().toCenterLocation())
         );
-        setTickInterval(TICK_INTERVAL);
+        setTickInterval(tickInterval);
     }
 
     @SuppressWarnings("unused")
@@ -173,12 +173,12 @@ public final class BronzeAnvil extends RebarBlock implements
             return;
         } else if (item.isSimilar(PylonItems.TONGS)) {
             workingChange -= temperature;
-            getBlock().getWorld().playSound(TONGS_SOUND, player);
+            getBlock().getWorld().playSound(tongsSound, player);
         } else if (RebarItem.fromStack(item, Hammer.class) instanceof Hammer hammer) {
             if (!player.hasCooldown(item)) {
                 workingChange += temperature;
                 player.setCooldown(item, hammer.cooldownTicks);
-                getBlock().getWorld().playSound(HAMMER_SOUND, player);
+                getBlock().getWorld().playSound(hammerSound, player);
             }
         } else {
             return;
@@ -213,14 +213,14 @@ public final class BronzeAnvil extends RebarBlock implements
 
     @Override
     public void tick() {
-        if (ThreadLocalRandom.current().nextFloat() > COOL_CHANCE) return;
+        if (ThreadLocalRandom.current().nextFloat() > coolChance) return;
         ItemDisplay itemDisplay = getItemDisplay();
         if (itemDisplay == null) return;
         if (!(RebarItem.fromStack(itemDisplay.getItemStack(), IronBloom.class) instanceof IronBloom bloom)) return;
         int newTemperature = Math.max(0, bloom.getTemperature() - 1);
         bloom.setTemperature(newTemperature);
         bloom.setDisplayGlowOn(itemDisplay);
-        if (bloom.getWorking() >= -TOLERANCE && bloom.getWorking() <= TOLERANCE && newTemperature == 0) {
+        if (bloom.getWorking() >= -tolerance && bloom.getWorking() <= tolerance && newTemperature == 0) {
             itemDisplay.setItemStack(null);
             Location dropLoc = getBlock().getLocation().toCenterLocation().add(0, 1, 0);
             dropLoc.getWorld().dropItemNaturally(dropLoc, PylonItems.WROUGHT_IRON.clone());

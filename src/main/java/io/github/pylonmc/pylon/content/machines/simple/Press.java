@@ -8,6 +8,7 @@ import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.base.*;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
+import io.github.pylonmc.rebar.config.ConfigSection;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
 import io.github.pylonmc.rebar.entity.display.transform.TransformBuilder;
@@ -55,9 +56,10 @@ public class Press extends RebarBlock implements
         RebarRecipeProcessor<PressRecipe>,
         RebarNoJobBlock {
 
-    public static final int TIME_PER_ITEM_TICKS = getSettings(PylonKeys.PRESS).getOrThrow("time-per-item-ticks", ConfigAdapter.INTEGER);
-    public static final int RETURN_TO_START_TIME_TICKS = getSettings(PylonKeys.PRESS).getOrThrow("return-to-start-time-ticks", ConfigAdapter.INTEGER);
-    public static final int CAPACITY_MB = getSettings(PylonKeys.PRESS).getOrThrow("capacity-mb", ConfigAdapter.INTEGER);
+    public static final ConfigSection CONFIG = ConfigSection.fromSettings(PylonKeys.PRESS);
+    public static final int TIME_PER_ITEM_TICKS = CONFIG.getOrThrow("time-per-item-ticks", ConfigAdapter.INTEGER);
+    public static final int RETURN_TO_START_TIME_TICKS = CONFIG.getOrThrow("return-to-start-time-ticks", ConfigAdapter.INTEGER);
+    public static final int CAPACITY_MB = CONFIG.getOrThrow("capacity-mb", ConfigAdapter.INTEGER);
 
     public static class PressItem extends RebarItem {
 

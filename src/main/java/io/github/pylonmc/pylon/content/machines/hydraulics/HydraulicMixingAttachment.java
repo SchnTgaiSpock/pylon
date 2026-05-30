@@ -43,18 +43,18 @@ public class HydraulicMixingAttachment extends RebarBlock implements
         RebarProcessor,
         RebarDirectionalBlock {
 
-    public final int cooldownTicks = getSettings().getOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
-    public final int downAnimationTimeTicks = getSettings().getOrThrow("down-animation-time-ticks", ConfigAdapter.INTEGER);
-    public final int upAnimationTimeTicks = getSettings().getOrThrow("up-animation-time-ticks", ConfigAdapter.INTEGER);
-    public final double hydraulicFluidPerCraft = getSettings().getOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int cooldownTicks = getSettingOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
+    public final int downAnimationTimeTicks = getSettingOrThrow("down-animation-time-ticks", ConfigAdapter.INTEGER);
+    public final int upAnimationTimeTicks = getSettingOrThrow("up-animation-time-ticks", ConfigAdapter.INTEGER);
+    public final double hydraulicFluidPerCraft = getSettingOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
 
-        public final int cooldownTicks = getSettings().getOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
-        public final double hydraulicFluidPerCraft = getSettings().getOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
+        public final int cooldownTicks = getSettingOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
+        public final double hydraulicFluidPerCraft = getSettingOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

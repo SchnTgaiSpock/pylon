@@ -49,9 +49,9 @@ public class FluidLimiter extends RebarBlock implements RebarDirectionalBlock, R
     public final ItemStackBuilder verticalStack = ItemStackBuilder.of(Material.CYAN_TERRACOTTA)
             .addCustomModelDataString(getKey() + ":vertical");
 
-    public final int buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
-    public final int minAmount = getSettings().getOrThrow("min-amount", ConfigAdapter.INTEGER);
-    public final int maxAmount = getSettings().getOrThrow("max-amount", ConfigAdapter.INTEGER);
+    public final int buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int minAmount = getSettingOrThrow("min-amount", ConfigAdapter.INTEGER);
+    public final int maxAmount = getSettingOrThrow("max-amount", ConfigAdapter.INTEGER);
 
     public int maxFlowRate;
 
@@ -103,8 +103,8 @@ public class FluidLimiter extends RebarBlock implements RebarDirectionalBlock, R
 
     public static class Item extends RebarItem {
 
-        public final int minAmount = getSettings().getOrThrow("min-amount", ConfigAdapter.INTEGER);
-        public final int maxAmount = getSettings().getOrThrow("max-amount", ConfigAdapter.INTEGER);
+        public final int minAmount = getSettingOrThrow("min-amount", ConfigAdapter.INTEGER);
+        public final int maxAmount = getSettingOrThrow("max-amount", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

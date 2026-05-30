@@ -56,16 +56,16 @@ public class PotionAltar extends RebarBlock
     private static final MultiblockComponent SHIMMER_PEDESTAL_COMPONENT = MultiblockComponent.of(PylonKeys.SHIMMER_PEDESTAL);
     private static final MultiblockComponent POTION_PEDESTAL_COMPONENT = MultiblockComponent.of(PylonKeys.POTION_PEDESTAL);
     private static final MultiblockComponent LIT_ORANGE_CANDLE_COMPONENT = MultiblockComponent.of(Material.ORANGE_CANDLE.createBlockData("[lit=true]"));
-    private final Sound START_SOUND = getSettings().getOrThrow("sound.start", ConfigAdapter.SOUND);
-    private final Sound FINISH_SOUND = getSettings().getOrThrow("sound.finish", ConfigAdapter.SOUND);
-    private final Sound CANCEL_SOUND = getSettings().getOrThrow("sound.cancel", ConfigAdapter.SOUND);
-    private final Sound PROCESSING_SOUND = getSettings().getOrThrow("sound.processing", ConfigAdapter.SOUND);
-    private final Sound CANNOT_APPLY_CATALYST_SOUND = getSettings().getOrThrow("sound.cannot_apply_catalyst", ConfigAdapter.SOUND);
-    private final Sound FAILED_APPLY_CATALYST_SOUND = getSettings().getOrThrow("sound.failed_apply_catalyst", ConfigAdapter.SOUND);
+    private final Sound START_SOUND = getSettingOrThrow("sound.start", ConfigAdapter.SOUND);
+    private final Sound FINISH_SOUND = getSettingOrThrow("sound.finish", ConfigAdapter.SOUND);
+    private final Sound CANCEL_SOUND = getSettingOrThrow("sound.cancel", ConfigAdapter.SOUND);
+    private final Sound PROCESSING_SOUND = getSettingOrThrow("sound.processing", ConfigAdapter.SOUND);
+    private final Sound CANNOT_APPLY_CATALYST_SOUND = getSettingOrThrow("sound.cannot_apply_catalyst", ConfigAdapter.SOUND);
+    private final Sound FAILED_APPLY_CATALYST_SOUND = getSettingOrThrow("sound.failed_apply_catalyst", ConfigAdapter.SOUND);
 
-    private final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    private final int recipeTimeTicks = getSettings().getOrThrow("recipe-time-ticks", ConfigAdapter.INTEGER);
-    private final int maxEffectTypes = getSettings().getOrThrow("max-effect-types", ConfigAdapter.INTEGER);
+    private final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    private final int recipeTimeTicks = getSettingOrThrow("recipe-time-ticks", ConfigAdapter.INTEGER);
+    private final int maxEffectTypes = getSettingOrThrow("max-effect-types", ConfigAdapter.INTEGER);
     private int ticked = 0;
     private @Nullable Player interactor;
     private @Nullable AltarProgress altarProgress;
@@ -74,7 +74,7 @@ public class PotionAltar extends RebarBlock
      * @author balugaq
      */
     public static class Item extends RebarItem {
-        private final int maxEffectTypes = getSettings().getOrThrow("max-effect-types", ConfigAdapter.INTEGER);
+        private final int maxEffectTypes = getSettingOrThrow("max-effect-types", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

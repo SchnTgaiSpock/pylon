@@ -51,19 +51,19 @@ public class DieselPipeBender extends RebarBlock implements
         RebarLogisticBlock,
         RebarRecipeProcessor<PipeBendingRecipe> {
 
-    public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
-    public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
+    public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+    public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
 
     private final VirtualInventory inputInventory = new VirtualInventory(1);
     private final VirtualInventory outputInventory = new VirtualInventory(1);
 
     public static class Item extends RebarItem {
 
-        public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
-        public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
-        public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
+        public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
+        public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+        public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

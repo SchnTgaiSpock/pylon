@@ -83,7 +83,7 @@ public final class Loupe extends RebarItem implements RebarInteractor, RebarCons
     private static final Map<UUID, RayTraceResult> SCANNING = new HashMap<>();
 
     static {
-        ConfigSection loupeConfig = getSettings(PylonKeys.LOUPE);
+        ConfigSection loupeConfig = ConfigSection.fromSettings(PylonKeys.LOUPE);
 
         ConfigSection itemOverridesConfig = loupeConfig.getSection("item_overrides");
         Map<ItemRarity, EntryConfig> itemConfigs = new EnumMap<>(ItemRarity.class);
@@ -139,7 +139,7 @@ public final class Loupe extends RebarItem implements RebarInteractor, RebarCons
         ENTITY_OVERRIDES = Map.copyOf(entityOverrides);
     }
 
-    public final int cooldownTicks = getSettings().getOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
+    public final int cooldownTicks = getSettingOrThrow("cooldown-ticks", ConfigAdapter.INTEGER);
 
     public Loupe(@NotNull ItemStack stack) {
         super(stack);

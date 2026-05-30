@@ -49,15 +49,15 @@ public class Collimator extends RebarBlock implements
         RebarSimpleMultiblock,
         RebarVirtualInventoryBlock {
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final int obscyraPerCohesiveUnit = getSettings().getOrThrow("obscyra-per-cohesive-unit", ConfigAdapter.INTEGER);
-    public final int secondsPerCohesiveUnit = getSettings().getOrThrow("seconds-per-cohesive-unit", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int obscyraPerCohesiveUnit = getSettingOrThrow("obscyra-per-cohesive-unit", ConfigAdapter.INTEGER);
+    public final int secondsPerCohesiveUnit = getSettingOrThrow("seconds-per-cohesive-unit", ConfigAdapter.INTEGER);
     public final VirtualInventory inventory = new VirtualInventory(1);
 
     public static class Item extends RebarItem {
 
-        public final int obscyraPerCohesiveUnit = getSettings().getOrThrow("obscyra-per-cohesive-unit", ConfigAdapter.INTEGER);
-        public final int secondsPerCohesiveUnit = getSettings().getOrThrow("seconds-per-cohesive-unit", ConfigAdapter.INTEGER);
+        public final int obscyraPerCohesiveUnit = getSettingOrThrow("obscyra-per-cohesive-unit", ConfigAdapter.INTEGER);
+        public final int secondsPerCohesiveUnit = getSettingOrThrow("seconds-per-cohesive-unit", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

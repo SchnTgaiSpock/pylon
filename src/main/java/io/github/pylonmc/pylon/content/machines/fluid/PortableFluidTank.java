@@ -49,10 +49,10 @@ public class PortableFluidTank extends RebarBlock implements FluidTankWithDispla
         public static final NamespacedKey FLUID_TYPE_KEY = pylonKey("fluid_type");
 
         @Getter
-        private final double capacity = getSettings().getOrThrow("capacity", ConfigAdapter.DOUBLE);
+        private final double capacity = getSettingOrThrow("capacity", ConfigAdapter.DOUBLE);
 
         @Getter
-        private final List<FluidTemperature> allowedTemperatures = getSettings().getOrThrow(
+        private final List<FluidTemperature> allowedTemperatures = getSettingOrThrow(
                 "allowed-temperatures",
                 ConfigAdapter.LIST.from(ConfigAdapter.FLUID_TEMPERATURE)
         );
@@ -116,9 +116,9 @@ public class PortableFluidTank extends RebarBlock implements FluidTankWithDispla
         }
     }
 
-    public final double capacity = getSettings().getOrThrow("capacity", ConfigAdapter.DOUBLE);
+    public final double capacity = getSettingOrThrow("capacity", ConfigAdapter.DOUBLE);
 
-    public final List<FluidTemperature> allowedTemperatures = getSettings().getOrThrow(
+    public final List<FluidTemperature> allowedTemperatures = getSettingOrThrow(
             "allowed-temperatures",
             ConfigAdapter.LIST.from(ConfigAdapter.FLUID_TEMPERATURE)
     );

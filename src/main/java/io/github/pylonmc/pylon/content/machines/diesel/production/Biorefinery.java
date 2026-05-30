@@ -48,10 +48,10 @@ public class Biorefinery extends RebarBlock implements
         RebarProcessor,
         RebarTickingBlock {
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double biodieselPerSecond = getSettings().getOrThrow("biodiesel-per-second", ConfigAdapter.DOUBLE);
-    public final double ethanolPerMbOfBiodiesel = getSettings().getOrThrow("ethanol-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
-    public final double plantOilPerMbOfBiodiesel = getSettings().getOrThrow("plant-oil-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double biodieselPerSecond = getSettingOrThrow("biodiesel-per-second", ConfigAdapter.DOUBLE);
+    public final double ethanolPerMbOfBiodiesel = getSettingOrThrow("ethanol-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
+    public final double plantOilPerMbOfBiodiesel = getSettingOrThrow("plant-oil-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
 
     public static final Vector3i FUEL_INPUT_HATCH = new Vector3i(1, 0, 3);
     public static final Vector3i BIODIESEL_OUTPUT_HATCH = new Vector3i(0, 0, -1);
@@ -60,9 +60,9 @@ public class Biorefinery extends RebarBlock implements
 
     public static class Item extends RebarItem {
 
-        public final double biodieselPerSecond = getSettings().getOrThrow("biodiesel-per-second", ConfigAdapter.DOUBLE);
-        public final double ethanolPerMbOfBiodiesel = getSettings().getOrThrow("ethanol-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
-        public final double plantOilPerMbOfBiodiesel = getSettings().getOrThrow("plant-oil-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
+        public final double biodieselPerSecond = getSettingOrThrow("biodiesel-per-second", ConfigAdapter.DOUBLE);
+        public final double ethanolPerMbOfBiodiesel = getSettingOrThrow("ethanol-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
+        public final double plantOilPerMbOfBiodiesel = getSettingOrThrow("plant-oil-per-mb-of-biodiesel", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);
