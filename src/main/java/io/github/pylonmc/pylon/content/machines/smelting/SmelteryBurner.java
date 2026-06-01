@@ -123,7 +123,6 @@ public final class SmelteryBurner extends SmelteryComponent implements
             Furnace furnace = (Furnace) getBlock().getBlockData();
             furnace.setLit(true);
             getBlock().setBlockData(furnace);
-            refreshBlockTextureItem();
 
             break;
         }
@@ -136,7 +135,6 @@ public final class SmelteryBurner extends SmelteryComponent implements
         Furnace furnace = (Furnace) getBlock().getBlockData();
         furnace.setLit(false);
         getBlock().setBlockData(furnace);
-        refreshBlockTextureItem();
     }
 
     @Override

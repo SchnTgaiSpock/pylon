@@ -32,7 +32,6 @@ public class ManualCoreDrillLever extends RebarBlock implements InteractRebarBlo
         if (getBlock().getBlockData() instanceof Switch switchData) {
             switchData.setPowered(false);
             getBlock().setBlockData(switchData);
-            refreshBlockTextureItem();
         }
     }
 
@@ -74,12 +73,10 @@ public class ManualCoreDrillLever extends RebarBlock implements InteractRebarBlo
             leverResetTask.cancel();
         }
 
-        scheduleBlockTextureItemRefresh();
         leverResetTask = Bukkit.getScheduler().runTaskLater(Pylon.getInstance(), () -> {
             if (getBlock().getBlockData() instanceof Switch switchData) {
                 switchData.setPowered(false);
                 getBlock().setBlockData(switchData);
-                refreshBlockTextureItem();
             }
         }, (long) drill.getRotationDuration() * drill.getRotationsPerCycle());
     }
