@@ -38,19 +38,19 @@ public class SolarHydraulicPurifier extends RebarBlock implements
         HydraulicPurifier,
         RebarTickingBlock {
 
-    public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.DOUBLE);
-    public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
-    public final double rainSpeedFraction = getSettings().getOrThrow("rain-speed-fraction", ConfigAdapter.DOUBLE);
-    public final int lensLayers = getSettings().getOrThrow("lens-layers", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.DOUBLE);
+    public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final double rainSpeedFraction = getSettingOrThrow("rain-speed-fraction", ConfigAdapter.DOUBLE);
+    public final int lensLayers = getSettingOrThrow("lens-layers", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
 
-        public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.DOUBLE);
-        public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
-        public final double rainSpeedFraction = getSettings().getOrThrow("rain-speed-fraction", ConfigAdapter.DOUBLE);
+        public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.DOUBLE);
+        public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final double rainSpeedFraction = getSettingOrThrow("rain-speed-fraction", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

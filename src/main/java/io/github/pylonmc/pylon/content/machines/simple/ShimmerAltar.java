@@ -50,7 +50,7 @@ public class ShimmerAltar extends RebarBlock
 
     private static final MultiblockComponent SHIMMER_PEDESTAL_COMPONENT = MultiblockComponent.of(PylonKeys.SHIMMER_PEDESTAL);
 
-    private final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    private final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     @SuppressWarnings("unused")
     public ShimmerAltar(Block block, BlockCreateContext context) {

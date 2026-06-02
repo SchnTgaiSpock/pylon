@@ -75,10 +75,10 @@ public class Kiln extends RebarBlock implements
 
     private static final Random RANDOM = new Random();
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double minTemperature = getSettings().getOrThrow("min-temperature", ConfigAdapter.DOUBLE);
-    public final double maxTemperature = getSettings().getOrThrow("max-temperature", ConfigAdapter.DOUBLE);
-    public final double heatingRate = getSettings().getOrThrow("heating-rate", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double minTemperature = getSettingOrThrow("min-temperature", ConfigAdapter.DOUBLE);
+    public final double maxTemperature = getSettingOrThrow("max-temperature", ConfigAdapter.DOUBLE);
+    public final double heatingRate = getSettingOrThrow("heating-rate", ConfigAdapter.DOUBLE);
 
     private final VirtualInventory fuelInventory = new VirtualInventory(1);
 
@@ -189,7 +189,6 @@ public class Kiln extends RebarBlock implements
         Furnace furnace = (Furnace) getBlock().getBlockData();
         furnace.setLit(fuelTicksRemaining > 0);
         getBlock().setBlockData(furnace);
-        refreshBlockTextureItem();
 
         int level = Math.clamp((int) Math.round(15 * temperature / maxTemperature), 0, 15);
         Block light = getLight();

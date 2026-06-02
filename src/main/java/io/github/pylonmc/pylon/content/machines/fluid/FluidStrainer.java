@@ -47,14 +47,14 @@ public class FluidStrainer extends RebarBlock implements
     private static final NamespacedKey FLUID_AMOUNT_KEY = pylonKey("fluid_amount");
     private static final NamespacedKey FLUID_TYPE_KEY = pylonKey("fluid_type");
 
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
     public @Nullable RebarFluid fluidType;
     public double fluidAmount;
     private final VirtualInventory inventory = new VirtualInventory(5);
 
     public static class Item extends RebarItem {
 
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

@@ -44,19 +44,19 @@ public class ManualHydraulicPurifier extends RebarBlock implements
         RebarInteractBlock,
         RebarNoVanillaInventoryBlock {
 
-    public final double hydraulicFluidPerCycle = getSettings().getOrThrow("hydraulic-fluid-per-cycle", ConfigAdapter.DOUBLE);
-    public final int cycleDuration = getSettings().getOrThrow("cycle-duration", ConfigAdapter.INTEGER);
-    public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final double hydraulicFluidPerCycle = getSettingOrThrow("hydraulic-fluid-per-cycle", ConfigAdapter.DOUBLE);
+    public final int cycleDuration = getSettingOrThrow("cycle-duration", ConfigAdapter.INTEGER);
+    public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
     public boolean isProcessing;
 
     public static class Item extends RebarItem {
 
-        public final double hydraulicFluidPerCycle = getSettings().getOrThrow("hydraulic-fluid-per-cycle", ConfigAdapter.DOUBLE);
-        public final int cycleDuration = getSettings().getOrThrow("cycle-duration", ConfigAdapter.INTEGER);
-        public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final double hydraulicFluidPerCycle = getSettingOrThrow("hydraulic-fluid-per-cycle", ConfigAdapter.DOUBLE);
+        public final int cycleDuration = getSettingOrThrow("cycle-duration", ConfigAdapter.INTEGER);
+        public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

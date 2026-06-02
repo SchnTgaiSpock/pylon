@@ -57,11 +57,11 @@ public class DieselHammerHead extends RebarBlock implements
         RebarDirectionalBlock,
         RebarLogisticBlock {
 
-    public final int goDownTimeTicks = getSettings().getOrThrow("go-down-time-ticks", ConfigAdapter.INTEGER);
-    public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
-    public final double dieselPerCraft = getSettings().getOrThrow("diesel-per-craft", ConfigAdapter.INTEGER);
-    public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int goDownTimeTicks = getSettingOrThrow("go-down-time-ticks", ConfigAdapter.INTEGER);
+    public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
+    public final double dieselPerCraft = getSettingOrThrow("diesel-per-craft", ConfigAdapter.INTEGER);
+    public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     private final VirtualInventory hammerInventory = new VirtualInventory(1);
 
@@ -79,9 +79,9 @@ public class DieselHammerHead extends RebarBlock implements
 
     public static class Item extends RebarItem {
 
-        public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
-        public final double dieselPerCraft = getSettings().getOrThrow("diesel-per-craft", ConfigAdapter.INTEGER);
-        public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.INTEGER);
+        public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
+        public final double dieselPerCraft = getSettingOrThrow("diesel-per-craft", ConfigAdapter.INTEGER);
+        public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

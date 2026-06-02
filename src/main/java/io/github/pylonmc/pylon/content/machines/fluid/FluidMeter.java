@@ -59,9 +59,9 @@ public class FluidMeter extends RebarBlock implements
     public static final NamespacedKey MEASUREMENTS_KEY = PylonUtils.pylonKey("measurements");
     public static final NamespacedKey NUMBER_OF_MEASUREMENTS_KEY = PylonUtils.pylonKey("number_of_measurements");
 
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
-    public final int minNumberOfMeasurements = getSettings().getOrThrow("min-number-of-measurements", ConfigAdapter.INTEGER);
-    public final int maxNumberOfMeasurements = getSettings().getOrThrow("max-number-of-measurements", ConfigAdapter.INTEGER);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final int minNumberOfMeasurements = getSettingOrThrow("min-number-of-measurements", ConfigAdapter.INTEGER);
+    public final int maxNumberOfMeasurements = getSettingOrThrow("max-number-of-measurements", ConfigAdapter.INTEGER);
 
     private double fluidAddedLastUpdate;
     private final List<Double> measurements;
@@ -71,9 +71,9 @@ public class FluidMeter extends RebarBlock implements
 
     public static class Item extends RebarItem {
 
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
-        public final int minNumberOfMeasurements = getSettings().getOrThrow("min-number-of-measurements", ConfigAdapter.INTEGER);
-        public final int maxNumberOfMeasurements = getSettings().getOrThrow("max-number-of-measurements", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final int minNumberOfMeasurements = getSettingOrThrow("min-number-of-measurements", ConfigAdapter.INTEGER);
+        public final int maxNumberOfMeasurements = getSettingOrThrow("max-number-of-measurements", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

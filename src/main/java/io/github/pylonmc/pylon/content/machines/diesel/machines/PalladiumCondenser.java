@@ -43,11 +43,11 @@ public class PalladiumCondenser extends RebarBlock implements
         RebarDirectionalBlock,
         RebarTickingBlock {
 
-    public final int shimmerDustPerCycle = getSettings().getOrThrow("shimmer-dust-per-cycle", ConfigAdapter.INTEGER);
-    public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.INTEGER);
-    public final double hydraulicFluidPerSecond = getSettings().getOrThrow("hydraulic-fluid-per-second", ConfigAdapter.INTEGER);
-    public final int machineTicksPerCycle = getSettings().getOrThrow("machine-ticks-per-cycle", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int shimmerDustPerCycle = getSettingOrThrow("shimmer-dust-per-cycle", ConfigAdapter.INTEGER);
+    public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.INTEGER);
+    public final double hydraulicFluidPerSecond = getSettingOrThrow("hydraulic-fluid-per-second", ConfigAdapter.INTEGER);
+    public final int machineTicksPerCycle = getSettingOrThrow("machine-ticks-per-cycle", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     public static final Vector3i SHIMMER_DUST_INPUT_HATCH = new Vector3i(1, 0, 0);
     public static final Vector3i PALLADIUM_DUST_OUTPUT_HATCH = new Vector3i(-1, 0, 0);
@@ -71,11 +71,11 @@ public class PalladiumCondenser extends RebarBlock implements
 
     public static class Item extends RebarItem {
 
-        public final int shimmerDustPerCycle = getSettings().getOrThrow("shimmer-dust-per-cycle", ConfigAdapter.INTEGER);
-        public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.INTEGER);
-        public final double hydraulicFluidPerSecond = getSettings().getOrThrow("hydraulic-fluid-per-second", ConfigAdapter.INTEGER);
-        public final int machineTicksPerCycle = getSettings().getOrThrow("machine-ticks-per-cycle", ConfigAdapter.INTEGER);
-        public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+        public final int shimmerDustPerCycle = getSettingOrThrow("shimmer-dust-per-cycle", ConfigAdapter.INTEGER);
+        public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.INTEGER);
+        public final double hydraulicFluidPerSecond = getSettingOrThrow("hydraulic-fluid-per-second", ConfigAdapter.INTEGER);
+        public final int machineTicksPerCycle = getSettingOrThrow("machine-ticks-per-cycle", ConfigAdapter.INTEGER);
+        public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
 
         public Item(@NotNull ItemStack stack) {

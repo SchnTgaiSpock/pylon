@@ -50,17 +50,17 @@ public class HydraulicTableSaw extends RebarBlock implements
         RebarLogisticBlock,
         RebarRecipeProcessor<TableSawRecipe>{
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final int hydraulicFluidUsage = getSettings().getOrThrow("hydraulic-fluid-usage", ConfigAdapter.INTEGER);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int hydraulicFluidUsage = getSettingOrThrow("hydraulic-fluid-usage", ConfigAdapter.INTEGER);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
     public final ItemStackBuilder sawItem = ItemStackBuilder.of(Material.IRON_BARS)
             .addCustomModelDataString(getKey() + ":saw");
 
     public static class Item extends RebarItem {
 
-        public final int hydraulicFluidUsage = getSettings().getOrThrow("hydraulic-fluid-usage", ConfigAdapter.INTEGER);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
+        public final int hydraulicFluidUsage = getSettingOrThrow("hydraulic-fluid-usage", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

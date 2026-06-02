@@ -33,18 +33,18 @@ public class DieselSmelteryHeater extends SmelteryComponent implements
         RebarTickingBlock,
         RebarNoVanillaInventoryBlock {
 
-    public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
-    public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double temperature = getSettings().getOrThrow("temperature", ConfigAdapter.DOUBLE);
+    public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+    public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double temperature = getSettingOrThrow("temperature", ConfigAdapter.DOUBLE);
 
     private boolean lit = false;
 
     public static class Item extends RebarItem {
 
-        public final double dieselPerSecond = getSettings().getOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
-        public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
-        public final double temperature = getSettings().getOrThrow("temperature", ConfigAdapter.DOUBLE);
+        public final double dieselPerSecond = getSettingOrThrow("diesel-per-second", ConfigAdapter.DOUBLE);
+        public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+        public final double temperature = getSettingOrThrow("temperature", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

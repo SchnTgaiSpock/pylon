@@ -51,17 +51,17 @@ public class DieselQuarry extends Quarry implements
         RebarVirtualInventoryBlock,
         RebarLogisticBlock {
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
-    public final int dieselPerBlock = getSettings().getOrThrow("diesel-per-block", ConfigAdapter.INTEGER);
-    public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
+    public final int dieselPerBlock = getSettingOrThrow("diesel-per-block", ConfigAdapter.INTEGER);
+    public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
 
     public static class Item extends RebarItem {
 
-        public final int radius = getSettings().getOrThrow("radius", ConfigAdapter.INTEGER);
-        public final double speed = getSettings().getOrThrow("speed", ConfigAdapter.DOUBLE);
-        public final int dieselPerBlock = getSettings().getOrThrow("diesel-per-block", ConfigAdapter.INTEGER);
-        public final double dieselBuffer = getSettings().getOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
+        public final int radius = getSettingOrThrow("radius", ConfigAdapter.INTEGER);
+        public final double speed = getSettingOrThrow("speed", ConfigAdapter.DOUBLE);
+        public final int dieselPerBlock = getSettingOrThrow("diesel-per-block", ConfigAdapter.INTEGER);
+        public final double dieselBuffer = getSettingOrThrow("diesel-buffer", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

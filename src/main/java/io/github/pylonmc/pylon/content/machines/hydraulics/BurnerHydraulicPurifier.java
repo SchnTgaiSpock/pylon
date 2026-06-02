@@ -48,19 +48,19 @@ public class BurnerHydraulicPurifier extends RebarBlock implements
     public static final Vector3i FLUID_INPUT = new Vector3i(1, 0, 1);
     public static final Vector3i FLUID_OUTPUT = new Vector3i(-1, 0, 1);
 
-    public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.INTEGER);
-    public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.INTEGER);
+    public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
     public final double hydraulicFluidPerMachineTick = purificationSpeed * tickInterval / 20;
 
     private static final Random RANDOM = new Random();
 
     public static class Item extends RebarItem {
 
-        public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.INTEGER);
-        public final double purificationEfficiency = getSettings().getOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
+        public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.INTEGER);
+        public final double purificationEfficiency = getSettingOrThrow("purification-efficiency", ConfigAdapter.DOUBLE);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

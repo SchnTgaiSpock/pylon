@@ -52,23 +52,23 @@ public class ConvectionHydraulicPurifier extends RebarBlock implements
     public static final Vector3i HYDRAULIC_FLUID_INPUT = new Vector3i(-1, 0, 1);
     public static final Vector3i HYDRAULIC_FLUID_OUTPUT = new Vector3i(1, 0, 1);
 
-    public final double minFluid = getSettings().getOrThrow("min-fluid", ConfigAdapter.INTEGER);
-    public final double basePurificationEfficiency = getSettings().getOrThrow("base-purification-efficiency", ConfigAdapter.DOUBLE);
-    public final double maxPurificationEfficiency = getSettings().getOrThrow("max-purification-efficiency", ConfigAdapter.DOUBLE);
-    public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.INTEGER);
-    public final int fluidAtMaxEfficiency = getSettings().getOrThrow("fluid-at-max-efficiency", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final double lavaParticleChance = getSettings().getOrThrow("lava-particle-chance", ConfigAdapter.DOUBLE);
+    public final double minFluid = getSettingOrThrow("min-fluid", ConfigAdapter.INTEGER);
+    public final double basePurificationEfficiency = getSettingOrThrow("base-purification-efficiency", ConfigAdapter.DOUBLE);
+    public final double maxPurificationEfficiency = getSettingOrThrow("max-purification-efficiency", ConfigAdapter.DOUBLE);
+    public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.INTEGER);
+    public final int fluidAtMaxEfficiency = getSettingOrThrow("fluid-at-max-efficiency", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double lavaParticleChance = getSettingOrThrow("lava-particle-chance", ConfigAdapter.DOUBLE);
 
     private static final Random RANDOM = new Random();
 
     public static class Item extends RebarItem {
 
-        public final double minFluid = getSettings().getOrThrow("min-fluid", ConfigAdapter.INTEGER);
-        public final double basePurificationEfficiency = getSettings().getOrThrow("base-purification-efficiency", ConfigAdapter.DOUBLE);
-        public final double maxPurificationEfficiency = getSettings().getOrThrow("max-purification-efficiency", ConfigAdapter.DOUBLE);
-        public final double purificationSpeed = getSettings().getOrThrow("purification-speed", ConfigAdapter.INTEGER);
-        public final int fluidAtMaxEfficiency = getSettings().getOrThrow("fluid-at-max-efficiency", ConfigAdapter.INTEGER);
+        public final double minFluid = getSettingOrThrow("min-fluid", ConfigAdapter.INTEGER);
+        public final double basePurificationEfficiency = getSettingOrThrow("base-purification-efficiency", ConfigAdapter.DOUBLE);
+        public final double maxPurificationEfficiency = getSettingOrThrow("max-purification-efficiency", ConfigAdapter.DOUBLE);
+        public final double purificationSpeed = getSettingOrThrow("purification-speed", ConfigAdapter.INTEGER);
+        public final int fluidAtMaxEfficiency = getSettingOrThrow("fluid-at-max-efficiency", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

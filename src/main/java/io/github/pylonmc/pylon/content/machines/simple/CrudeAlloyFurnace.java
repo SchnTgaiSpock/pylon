@@ -60,7 +60,7 @@ public class CrudeAlloyFurnace extends RebarBlock implements
     public static final NamespacedKey FUEL_TICKS_TOTAL_KEY = pylonKey("fuel_ticks_total");
     public static final NamespacedKey FUEL_TICKS_REMAINING_KEY = pylonKey("fuel_ticks_remaining");
 
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     private final VirtualInventory fuelInventory = new VirtualInventory(1);
     private final VirtualInventory inputInventory = new VirtualInventory(3);

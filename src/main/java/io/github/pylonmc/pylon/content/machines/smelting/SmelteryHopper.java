@@ -1,5 +1,6 @@
 package io.github.pylonmc.pylon.content.machines.smelting;
 
+import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import org.bukkit.block.Block;
 import org.bukkit.block.Hopper;
 import org.bukkit.event.EventPriority;
@@ -28,10 +29,12 @@ public final class SmelteryHopper extends SmelteryComponent implements
         RebarLogisticBlock,
         RebarBreakHandler {
 
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+
     @SuppressWarnings("unused")
     public SmelteryHopper(@NotNull Block block, @NotNull BlockCreateContext context) {
         super(block, context);
-        setTickInterval(SmelteryController.TICK_INTERVAL);
+        setTickInterval(tickInterval);
     }
 
     @SuppressWarnings("unused")
@@ -45,11 +48,11 @@ public final class SmelteryHopper extends SmelteryComponent implements
         createLogisticGroup(
                 "input",
                 LogisticGroupType.INPUT,
-                new VanillaInventoryLogisticSlot(hopper.getInventory(), 0),
-                new VanillaInventoryLogisticSlot(hopper.getInventory(), 1),
-                new VanillaInventoryLogisticSlot(hopper.getInventory(), 2),
-                new VanillaInventoryLogisticSlot(hopper.getInventory(), 3),
-                new VanillaInventoryLogisticSlot(hopper.getInventory(), 4)
+                new VanillaInventoryLogisticSlot(getBlock(), hopper.getInventory(), 0),
+                new VanillaInventoryLogisticSlot(getBlock(), hopper.getInventory(), 1),
+                new VanillaInventoryLogisticSlot(getBlock(), hopper.getInventory(), 2),
+                new VanillaInventoryLogisticSlot(getBlock(), hopper.getInventory(), 3),
+                new VanillaInventoryLogisticSlot(getBlock(), hopper.getInventory(), 4)
         );
     }
 

@@ -39,16 +39,16 @@ import java.util.List;
 public class FluidDrainer extends RebarBlock
         implements RebarFluidBufferBlock, RebarDirectionalBlock, RebarTickingBlock, RebarNoVanillaInventoryBlock, RebarDispenser {
 
-    public final Material material = getSettings().getOrThrow("material", ConfigAdapter.MATERIAL);
-    public final RebarFluid fluid = getSettings().getOrThrow("fluid", ConfigAdapter.REBAR_FLUID);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final Material material = getSettingOrThrow("material", ConfigAdapter.MATERIAL);
+    public final RebarFluid fluid = getSettingOrThrow("fluid", ConfigAdapter.REBAR_FLUID);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
     public final Block drainBlock;
 
     public static class Item extends RebarItem {
 
-        public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

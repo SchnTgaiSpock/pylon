@@ -14,7 +14,7 @@ import io.github.pylonmc.rebar.block.base.RebarLogisticBlock;
 import io.github.pylonmc.rebar.block.base.RebarTickingBlock;
 import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
-import io.github.pylonmc.rebar.config.Settings;
+import io.github.pylonmc.rebar.config.ConfigSection;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
@@ -62,14 +62,14 @@ public final class Crucible extends RebarBlock implements
         RebarTickingBlock,
         RebarLogisticBlock {
 
-    public final int capacity = getSettings().getOrThrow("capacity", ConfigAdapter.INTEGER);
-    public final int smeltTime = getSettings().getOrThrow("smelt-time", ConfigAdapter.INTEGER);
+    public final int capacity = getSettingOrThrow("capacity", ConfigAdapter.INTEGER);
+    public final int smeltTime = getSettingOrThrow("smelt-time", ConfigAdapter.INTEGER);
 
     private ItemStack crucibleContent = null;
 
     private static final NamespacedKey PROCESSING_KEY = pylonKey("processing");
 
-    public static final Map<Material, Integer> VANILLA_BLOCK_HEAT_MAP = Settings.get(PylonKeys.CRUCIBLE).getOrThrow("vanilla-block-heat-map", ConfigAdapter.MAP.from(ConfigAdapter.MATERIAL, ConfigAdapter.INTEGER));
+    public static final Map<Material, Integer> VANILLA_BLOCK_HEAT_MAP = ConfigSection.fromSettings(PylonKeys.CRUCIBLE).getOrThrow("vanilla-block-heat-map", ConfigAdapter.MAP.from(ConfigAdapter.MATERIAL, ConfigAdapter.INTEGER));
 
     @SuppressWarnings("unused")
     public Crucible(@NotNull Block block, @NotNull BlockCreateContext context) {

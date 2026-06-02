@@ -41,14 +41,14 @@ public class HydraulicPressPiston extends RebarBlock implements
         RebarFluidBufferBlock,
         RebarDirectionalBlock {
 
-    public final double hydraulicFluidPerCraft = getSettings().getOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final double hydraulicFluidPerCraft = getSettingOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
 
-        public final double hydraulicFluidPerCraft = getSettings().getOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
+        public final double hydraulicFluidPerCraft = getSettingOrThrow("hydraulic-fluid-per-craft", ConfigAdapter.INTEGER);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

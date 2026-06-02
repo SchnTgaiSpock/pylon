@@ -31,13 +31,13 @@ import java.util.List;
 import java.util.Map;
 
 public class ExperienceFountain extends RebarBlock implements RebarTickingBlock, RebarFluidBufferBlock, RebarSimpleMultiblock {
-    public final int amountToConvert = getSettings().getOrThrow("amount-to-convert", ConfigAdapter.INTEGER);
-    public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
-    public final int liquidXpCapacity = getSettings().getOrThrow("liquid-xp-capacity", ConfigAdapter.INTEGER);
+    public final int amountToConvert = getSettingOrThrow("amount-to-convert", ConfigAdapter.INTEGER);
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+    public final int liquidXpCapacity = getSettingOrThrow("liquid-xp-capacity", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
-        public final int amountToConvert = getSettings().getOrThrow("amount-to-convert", ConfigAdapter.INTEGER);
-        public final int tickInterval = getSettings().getOrThrow("tick-interval", ConfigAdapter.INTEGER);
+        public final int amountToConvert = getSettingOrThrow("amount-to-convert", ConfigAdapter.INTEGER);
+        public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);
