@@ -209,7 +209,11 @@ public final class Loupe extends RebarItem implements RebarInteractor, RebarCons
             }
         } else if (scan.getHitBlock() != null) {
             Block hit = scan.getHitBlock();
-            Material type = hit.getType();
+            Material type = hit.getBlockData().getPlacementMaterial();
+            if (type == Material.AIR) {
+                return;
+            }
+
             if (BlockStorage.get(hit) != null) {
                 player.sendActionBar(message("is_pylon"));
             } else if (!hasUses(player, type)) {
@@ -286,7 +290,11 @@ public final class Loupe extends RebarItem implements RebarInteractor, RebarCons
             player.setCooldown(getStack(), cooldownTicks);
         } else if (scan.getHitBlock() != null) {
             Block hit = scan.getHitBlock();
-            Material type = hit.getType();
+            Material type = hit.getBlockData().getPlacementMaterial();
+            if (type == Material.AIR) {
+                return;
+            }
+
             if (BlockStorage.get(hit) != null || !hasUses(player, type)) {
                 player.sendMessage(message("examine_failed", RebarArgument.of("object", Component.translatable(type))));
                 return;
