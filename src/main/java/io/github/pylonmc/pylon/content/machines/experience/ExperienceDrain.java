@@ -25,13 +25,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ExperienceDrain extends RebarBlock implements RebarTickingBlock, RebarFluidBufferBlock {
-    public final int xpDrainPeriodTicks = getSettings().getOrThrow("xp-drain-period-ticks", ConfigAdapter.INTEGER);
-    public final int xpDrainAmount = getSettings().getOrThrow("xp-drain-amount", ConfigAdapter.INTEGER);
-    public final int xpBufferAmount = getSettings().getOrThrow("xp-buffer-amount", ConfigAdapter.INTEGER);
+    public final int xpDrainPeriodTicks = getSettingOrThrow("xp-drain-period-ticks", ConfigAdapter.INTEGER);
+    public final int xpDrainAmount = getSettingOrThrow("xp-drain-amount", ConfigAdapter.INTEGER);
+    public final int xpBufferAmount = getSettingOrThrow("xp-buffer-amount", ConfigAdapter.INTEGER);
 
     public static class Item extends RebarItem {
-        public final int xpDrainPeriodTicks = getSettings().getOrThrow("xp-drain-period-ticks", ConfigAdapter.INTEGER);
-        public final int xpDrainAmount = getSettings().getOrThrow("xp-drain-amount", ConfigAdapter.INTEGER);
+        public final int xpDrainPeriodTicks = getSettingOrThrow("xp-drain-period-ticks", ConfigAdapter.INTEGER);
+        public final int xpDrainAmount = getSettingOrThrow("xp-drain-amount", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

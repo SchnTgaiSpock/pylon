@@ -62,8 +62,8 @@ public class CargoFluidAccumulator extends RebarBlock implements
     private final VirtualInventory inputInventory = new VirtualInventory(5);
     private final VirtualInventory outputInventory = new VirtualInventory(5);
 
-    public final int fluidBuffer = getSettings().getOrThrow("fluid-buffer", ConfigAdapter.INTEGER);
-    public final int transferRate = getSettings().getOrThrow("transfer-rate", ConfigAdapter.INTEGER);
+    public final int fluidBuffer = getSettingOrThrow("fluid-buffer", ConfigAdapter.INTEGER);
+    public final int transferRate = getSettingOrThrow("transfer-rate", ConfigAdapter.INTEGER);
 
     public int itemThreshold;
     public int fluidThreshold;
@@ -84,8 +84,8 @@ public class CargoFluidAccumulator extends RebarBlock implements
 
     public static class Item extends RebarItem {
 
-        public final int fluidBuffer = getSettings().getOrThrow("fluid-buffer", ConfigAdapter.INTEGER);
-        public final int transferRate = getSettings().getOrThrow("transfer-rate", ConfigAdapter.INTEGER);
+        public final int fluidBuffer = getSettingOrThrow("fluid-buffer", ConfigAdapter.INTEGER);
+        public final int transferRate = getSettingOrThrow("transfer-rate", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

@@ -41,11 +41,11 @@ import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 public class FluidFilter extends RebarBlock
         implements RebarFluidTank, RebarDirectionalBlock, RebarInventoryBlock {
 
-    public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+    public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
     public static class Item extends RebarItem {
 
-        public final double buffer = getSettings().getOrThrow("buffer", ConfigAdapter.DOUBLE);
+        public final double buffer = getSettingOrThrow("buffer", ConfigAdapter.DOUBLE);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

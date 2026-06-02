@@ -43,14 +43,14 @@ public class FluidTank extends RebarBlock
 
     private static final Vector3i CASING_POSITION = new Vector3i(0, 1, 0);
 
-    private final int maxHeight = getSettings().getOrThrow("max-height", ConfigAdapter.INTEGER);
+    private final int maxHeight = getSettingOrThrow("max-height", ConfigAdapter.INTEGER);
 
     private final List<FluidTankCasing> casings = new ArrayList<>();
     private final List<FluidTemperature> allowedTemperatures = new ArrayList<>();
 
     public static class Item extends RebarItem {
 
-        private final int maxHeight = getSettings().getOrThrow("max-height", ConfigAdapter.INTEGER);
+        private final int maxHeight = getSettingOrThrow("max-height", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);

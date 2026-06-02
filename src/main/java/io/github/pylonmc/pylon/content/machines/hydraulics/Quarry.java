@@ -30,7 +30,7 @@ public abstract class Quarry extends RebarBlock implements RebarMultiblock, Reba
     public static final NamespacedKey BLOCK_POSITIONS_KEY = pylonKey("block_positions");
     public static final NamespacedKey CHUNK_POSITIONS_KEY = pylonKey("chunk_positions");
 
-    public final int radius = getSettings().getOrThrow("radius", ConfigAdapter.INTEGER);
+    public final int radius = getSettingOrThrow("radius", ConfigAdapter.INTEGER);
 
     protected final List<BlockPosition> blockPositions;
     protected final Set<ChunkPosition> chunkPositions;

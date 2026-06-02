@@ -1,5 +1,6 @@
 package io.github.pylonmc.pylon.content.machines.smelting;
 
+import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import net.kyori.adventure.text.Component;
 
 import org.bukkit.Material;
@@ -29,6 +30,8 @@ public final class SmelteryBurner extends SmelteryComponent implements
         RebarLogisticBlock,
         RebarProcessor {
 
+    public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
+
     private final ItemStackBuilder notBurningProgressItem = ItemStackBuilder.of(Material.CHARCOAL)
             .name(Component.translatable("pylon.gui.smeltery_burner.not_burning"));
     private final ItemStackBuilder burningProgressItem = ItemStackBuilder.of(Material.BLAZE_POWDER)
@@ -41,7 +44,7 @@ public final class SmelteryBurner extends SmelteryComponent implements
     public SmelteryBurner(@NotNull Block block, @NotNull BlockCreateContext context) {
         super(block, context);
 
-        setTickInterval(SmelteryController.TICK_INTERVAL);
+        setTickInterval(tickInterval);
     }
 
     @SuppressWarnings("unused")

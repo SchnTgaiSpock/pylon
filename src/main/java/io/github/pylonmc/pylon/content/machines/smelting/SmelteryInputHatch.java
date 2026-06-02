@@ -16,7 +16,7 @@ import io.github.pylonmc.rebar.fluid.RebarFluid;
 import io.github.pylonmc.rebar.fluid.tags.FluidTemperature;
 
 public final class SmelteryInputHatch extends SmelteryComponent implements RebarFluidBlock, RebarDirectionalBlock {
-    public final double flowRate = getSettings().getOrThrow("flow-rate", ConfigAdapter.DOUBLE);
+    public final double flowRate = getSettingOrThrow("flow-rate", ConfigAdapter.DOUBLE);
 
     @SuppressWarnings("unused")
     public SmelteryInputHatch(@NotNull Block block, @NotNull BlockCreateContext context) {
