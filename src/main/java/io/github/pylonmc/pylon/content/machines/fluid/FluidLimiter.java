@@ -1,6 +1,5 @@
 package io.github.pylonmc.pylon.content.machines.fluid;
 
-import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.DirectionalRebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.FluidTankRebarBlock;
@@ -16,10 +15,10 @@ import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
 import io.github.pylonmc.rebar.item.builder.ItemStackBuilder;
 import io.github.pylonmc.rebar.util.gui.GuiItems;
+import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
@@ -49,9 +48,9 @@ public class FluidLimiter extends RebarBlock implements DirectionalRebarBlock, F
     public final ItemStackBuilder verticalStack = ItemStackBuilder.of(Material.CYAN_TERRACOTTA)
             .addCustomModelDataString(getKey() + ":vertical");
 
-    public final int buffer = getSettings().getOrThrow("buffer", ConfigAdapter.INTEGER);
-    public final int minAmount = getSettings().getOrThrow("min-amount", ConfigAdapter.INTEGER);
-    public final int maxAmount = getSettings().getOrThrow("max-amount", ConfigAdapter.INTEGER);
+    public final int buffer = getSettingOrThrow("buffer", ConfigAdapter.INTEGER);
+    public final int minAmount = getSettingOrThrow("min-amount", ConfigAdapter.INTEGER);
+    public final int maxAmount = getSettingOrThrow("max-amount", ConfigAdapter.INTEGER);
 
     public int maxFlowRate;
 
@@ -103,8 +102,8 @@ public class FluidLimiter extends RebarBlock implements DirectionalRebarBlock, F
 
     public static class Item extends RebarItem {
 
-        public final int minAmount = getSettings().getOrThrow("min-amount", ConfigAdapter.INTEGER);
-        public final int maxAmount = getSettings().getOrThrow("max-amount", ConfigAdapter.INTEGER);
+        public final int minAmount = getSettingOrThrow("min-amount", ConfigAdapter.INTEGER);
+        public final int maxAmount = getSettingOrThrow("max-amount", ConfigAdapter.INTEGER);
 
         public Item(@NotNull ItemStack stack) {
             super(stack);
@@ -128,16 +127,11 @@ public class FluidLimiter extends RebarBlock implements DirectionalRebarBlock, F
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
         return new WailaDisplay(getDefaultWailaTranslationKey().arguments(
-                RebarArgument.of("bars", PylonUtils.createFluidAmountBar(
-                        getFluidAmount(),
+                RebarArgument.of("fluid", ProgressBar.fluidContentsWithName(
+                        getFluidType(),
                         getFluidCapacity(),
-                        20,
-                        TextColor.color(200, 255, 255)
-                )),
-                RebarArgument.of("fluid", getFluidType() == null
-                        ? Component.translatable("pylon.fluid.none")
-                        : getFluidType().getName()
-                )
+                        getFluidAmount()
+                ))
         ));
     }
 
