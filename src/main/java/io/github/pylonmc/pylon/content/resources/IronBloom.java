@@ -1,12 +1,12 @@
 package io.github.pylonmc.pylon.content.resources;
 
 import com.google.common.base.Preconditions;
-import io.github.pylonmc.pylon.PylonItems;
+import io.github.pylonmc.pylon.PylonKeys;
 import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.item.RebarItem;
-import io.github.pylonmc.rebar.item.base.RebarInventoryTicker;
+import io.github.pylonmc.rebar.item.interfaces.InventoryTickerRebarItem;
 import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
 import org.bukkit.NamespacedKey;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static io.github.pylonmc.pylon.util.PylonUtils.pylonKey;
 
-public class IronBloom extends RebarItem implements RebarInventoryTicker {
+public class IronBloom extends RebarItem implements InventoryTickerRebarItem {
 
     public final long damageInterval = getSettingOrThrow("damage-interval", ConfigAdapter.LONG);
     public final int unprotectedDamage = getSettingOrThrow("unprotected-damage", ConfigAdapter.INTEGER);

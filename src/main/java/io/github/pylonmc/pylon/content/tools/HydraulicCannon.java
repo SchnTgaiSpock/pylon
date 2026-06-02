@@ -13,7 +13,7 @@ import io.github.pylonmc.rebar.event.api.annotation.MultiHandler;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.item.RebarItem;
 import io.github.pylonmc.rebar.item.RebarItemSchema;
-import io.github.pylonmc.rebar.item.base.RebarInteractor;
+import io.github.pylonmc.rebar.item.interfaces.InteractRebarItemHandler;
 import io.github.pylonmc.rebar.util.RandomizedSound;
 import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
@@ -33,7 +33,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-public class HydraulicCannon extends RebarItem implements RebarInteractor, HydraulicRefuelable {
+public class HydraulicCannon extends RebarItem implements InteractRebarItemHandler, HydraulicRefuelable {
 
     public static final double HYDRAULIC_FLUID_CAPACITY = ConfigSection.fromSettings(PylonKeys.PORTABLE_FLUID_TANK_COPPER)
             .getOrThrow("capacity", ConfigAdapter.DOUBLE);
@@ -84,7 +84,7 @@ public class HydraulicCannon extends RebarItem implements RebarInteractor, Hydra
     }
 
     @Override @MultiHandler(priorities = { EventPriority.NORMAL, EventPriority.MONITOR })
-    public void onUsedToClick(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
+    public void onInteract(@NotNull PlayerInteractEvent event, @NotNull EventPriority priority) {
         Player player = event.getPlayer();
         Location source = player.getEyeLocation();
         if (!event.getAction().isRightClick() || event.useItemInHand() == Event.Result.DENY) {

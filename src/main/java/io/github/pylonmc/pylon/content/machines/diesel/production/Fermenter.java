@@ -6,10 +6,10 @@ import io.github.pylonmc.pylon.content.components.FluidOutputHatch;
 import io.github.pylonmc.pylon.content.components.ItemInputHatch;
 import io.github.pylonmc.pylon.content.components.ReinforcedGlassCasing;
 import io.github.pylonmc.rebar.block.RebarBlock;
-import io.github.pylonmc.rebar.block.base.RebarDirectionalBlock;
-import io.github.pylonmc.rebar.block.base.RebarFluidBufferBlock;
-import io.github.pylonmc.rebar.block.base.RebarSimpleMultiblock;
-import io.github.pylonmc.rebar.block.base.RebarTickingBlock;
+import io.github.pylonmc.rebar.block.interfaces.DirectionalRebarBlock;
+import io.github.pylonmc.rebar.block.interfaces.FluidBufferRebarBlock;
+import io.github.pylonmc.rebar.block.interfaces.SimpleRebarMultiblock;
+import io.github.pylonmc.rebar.block.interfaces.TickingRebarBlock;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.config.adapter.ConfigAdapter;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
@@ -38,10 +38,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Fermenter extends RebarBlock implements
-        RebarSimpleMultiblock,
-        RebarDirectionalBlock,
-        RebarTickingBlock,
-        RebarFluidBufferBlock {
+        SimpleRebarMultiblock,
+        DirectionalRebarBlock,
+        TickingRebarBlock,
+        FluidBufferRebarBlock {
 
     public final int tickInterval = getSettingOrThrow("tick-interval", ConfigAdapter.INTEGER);
     public final double ethanolPerSugarcane = getSettingOrThrow("ethanol-per-sugarcane", ConfigAdapter.DOUBLE);
@@ -124,7 +124,7 @@ public class Fermenter extends RebarBlock implements
 
     @Override
     public void onMultiblockFormed() {
-        RebarSimpleMultiblock.super.onMultiblockFormed();
+        SimpleRebarMultiblock.super.onMultiblockFormed();
         onMultiblockRefreshed();
         getMultiblockComponentOrThrow(FluidOutputHatch.class, OUTPUT_HATCH).setFluidType(PylonFluids.ETHANOL);
         getHeldEntityOrThrow(ItemDisplay.class, "sugarcane").setItemStack(PylonFluids.SUGARCANE.getItem());
@@ -150,7 +150,7 @@ public class Fermenter extends RebarBlock implements
 
     @Override
     public void onMultiblockUnformed(boolean partUnloaded) {
-        RebarSimpleMultiblock.super.onMultiblockUnformed(partUnloaded);
+        SimpleRebarMultiblock.super.onMultiblockUnformed(partUnloaded);
 
         for (Vector3i position : getComponents().keySet()) {
             ReinforcedGlassCasing casing = getMultiblockComponent(ReinforcedGlassCasing.class, position);
@@ -196,7 +196,7 @@ public class Fermenter extends RebarBlock implements
 
     @Override
     public boolean setFluid(@NotNull RebarFluid fluid, double amount) {
-        boolean wasSet = RebarFluidBufferBlock.super.setFluid(fluid, amount);
+        boolean wasSet = FluidBufferRebarBlock.super.setFluid(fluid, amount);
         if (wasSet) {
             double sugarcaneProportion = fluidAmount(PylonFluids.SUGARCANE) / fluidCapacity(PylonFluids.SUGARCANE);
             getHeldEntityOrThrow(ItemDisplay.class, "sugarcane").setTransformationMatrix(
