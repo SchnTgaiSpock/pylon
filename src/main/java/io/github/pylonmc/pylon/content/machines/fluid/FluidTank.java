@@ -21,6 +21,7 @@ import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.github.pylonmc.rebar.util.position.BlockPosition;
 import io.github.pylonmc.rebar.util.position.ChunkPosition;
+import io.github.pylonmc.rebar.waila.RebarBlockWailaSupplier;
 import io.github.pylonmc.rebar.waila.Waila;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
@@ -134,7 +135,7 @@ public class FluidTank extends RebarBlock
             } else {
                 casing.setShape(FluidTankCasing.Shape.MIDDLE);
             }
-            Waila.addWailaOverride(new BlockPosition(casing.getBlock()), this::getWaila);
+            Waila.addWailaOverride(casing.getBlock(), new RebarBlockWailaSupplier(this));
             casing.tank = this;
         }
     }
