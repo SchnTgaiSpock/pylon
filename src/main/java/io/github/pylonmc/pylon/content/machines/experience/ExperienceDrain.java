@@ -58,7 +58,7 @@ public class ExperienceDrain extends RebarBlock implements TickingRebarBlock, Fl
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(ProgressBar.fluidContents(
                         PylonFluids.LIQUID_XP,
                         fluidCapacity(PylonFluids.LIQUID_XP),

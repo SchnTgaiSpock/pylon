@@ -228,7 +228,7 @@ public class ConvectionHydraulicPurifier extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (isFormedAndFullyLoaded() && hasEnoughWaterAndLava()) {
             display.add(new ProgressBar()
                     .barColor(TextColor.fromHexString("#e0c77d"))

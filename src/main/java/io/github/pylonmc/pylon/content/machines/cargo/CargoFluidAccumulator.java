@@ -262,7 +262,7 @@ public class CargoFluidAccumulator extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(UnitFormat.ITEMS.format(itemThreshold))
                 .add(UnitFormat.MILLIBUCKETS.format(fluidThreshold))
                 .add(ProgressBar.fluidContentsWithName(

@@ -113,7 +113,7 @@ public class Press extends RebarBlock implements
 
     @Override
     public @NotNull WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(ProgressBar.fluidContents(
                         PylonFluids.PLANT_OIL,
                         fluidCapacity(PylonFluids.PLANT_OIL),

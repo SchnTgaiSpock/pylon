@@ -126,7 +126,7 @@ public class HydraulicRefuelingStation extends RebarBlock implements
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
         HydraulicRefuelable refuelable = getHeldRefuelableItem();
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (refuelable != null) {
             display.add(ProgressBar.fluidContents(
                             PylonFluids.HYDRAULIC_FLUID,

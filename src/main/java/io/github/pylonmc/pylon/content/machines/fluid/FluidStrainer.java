@@ -151,7 +151,7 @@ public class FluidStrainer extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this)
+        WailaDisplay display = WailaDisplay.of(this, player)
                 .add(ProgressBar.fluidContentsWithName(fluidType, buffer, fluidAmount));
         if (isProcessingRecipe()) {
             double fluidNeeded = getCurrentRecipe().input().amountMillibuckets();

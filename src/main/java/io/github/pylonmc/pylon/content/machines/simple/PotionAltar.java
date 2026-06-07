@@ -495,7 +495,7 @@ public class PotionAltar extends RebarBlock
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (altarProgress != null) {
             double progress = (double) (altarProgress.timeTicks - altarProgress.ticksRemaining) / altarProgress.timeTicks;
             display.add(ProgressBar.recipeProgress(progress));

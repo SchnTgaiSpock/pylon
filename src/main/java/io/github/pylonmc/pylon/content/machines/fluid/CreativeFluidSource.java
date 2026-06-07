@@ -107,7 +107,7 @@ public class CreativeFluidSource extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(fluid == null
                         ? Component.translatable("rebar.fluid.none")
                         : fluid.getName()

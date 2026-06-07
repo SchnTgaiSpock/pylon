@@ -233,7 +233,7 @@ public class Biorefinery extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(isProcessing()
                         ? ProgressBar.fuelRemaining(getProcessTimeSeconds(), getProcessSecondsRemaining())
                         : Component.translatable("pylon.message.no_fuel")

@@ -85,7 +85,7 @@ public class FluidDrainer extends RebarBlock
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(ProgressBar.fluidContents(
                         fluid,
                         fluidCapacity(fluid),

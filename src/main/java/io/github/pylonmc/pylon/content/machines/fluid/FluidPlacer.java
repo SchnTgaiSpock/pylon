@@ -84,7 +84,7 @@ public class FluidPlacer extends RebarBlock implements FluidBufferRebarBlock, Ti
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(ProgressBar.fluidContents(
                         fluid,
                         fluidCapacity(fluid),

@@ -276,7 +276,7 @@ public class CargoSplitter extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(Component.text(ratioLeft).color(TextColor.fromHexString("#efae15"))
                         .append(Component.text("-").color(NamedTextColor.WHITE))
                         .append(Component.text(ratioRight).color(TextColor.fromHexString("#2386c4")))

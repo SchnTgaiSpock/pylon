@@ -181,7 +181,7 @@ public class Silo extends RebarBlock implements LogisticRebarBlock, InteractReba
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (stack == null) {
             display.add(Component.translatable("pylon.message.silo.empty"));
         }

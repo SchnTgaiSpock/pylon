@@ -269,7 +269,7 @@ public class CargoMeter extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(UnitFormat.formatDuration(getDuration(numberOfMeasurements), true, true));
     }
 

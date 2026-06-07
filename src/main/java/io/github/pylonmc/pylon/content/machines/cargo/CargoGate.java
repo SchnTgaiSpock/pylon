@@ -242,7 +242,7 @@ public class CargoGate extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(UnitFormat.ITEMS.format(threshold))
                 .add(itemsRemaining == 0
                         ? Component.translatable("pylon.inventory.left")

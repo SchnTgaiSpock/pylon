@@ -280,7 +280,7 @@ public class CrudeAlloyFurnace extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(isProcessingRecipe()
                         ? ProgressBar.recipeProgress(getRecipeProgress())
                         : Component.translatable("pylon.message.idle")

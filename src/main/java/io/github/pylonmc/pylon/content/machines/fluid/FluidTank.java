@@ -181,7 +181,7 @@ public class FluidTank extends RebarBlock
 
     @Override
     public @NotNull WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (isFormedAndFullyLoaded()) {
             display.add(ProgressBar.fluidContentsWithName(
                     getFluidType(),

@@ -123,7 +123,7 @@ public abstract class FluidHatch extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         
         if (!isFormedAndFullyLoaded()) {
             display.add(Component.translatable("pylon.message.fluid_hatch.no_casing"));

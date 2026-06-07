@@ -125,7 +125,7 @@ public class FluidValve extends RebarBlock
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(Component.translatable("pylon.message.valve." + (open ? "open" : "closed")))
                 .add(ProgressBar.fluidContentsWithName(
                         getFluidType(),

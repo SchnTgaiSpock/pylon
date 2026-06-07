@@ -121,7 +121,7 @@ public class Collimator extends RebarBlock implements
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (!isFormedAndFullyLoaded()) {
             return display;
         }

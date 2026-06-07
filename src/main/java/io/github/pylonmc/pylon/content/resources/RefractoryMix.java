@@ -55,7 +55,7 @@ public class RefractoryMix extends RebarBlock implements Moldable {
 
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
-        WailaDisplay display = WailaDisplay.of(this);
+        WailaDisplay display = WailaDisplay.of(this, player);
         if (moldingClicksRemaining != totalMoldingClicks()) {
             display.add(new ProgressBar()
                     .bars(totalMoldingClicks())

@@ -213,14 +213,14 @@ public class Fermenter extends RebarBlock implements
     @Override
     public @Nullable WailaDisplay getWaila(@NotNull Player player) {
         if (!isFormedAndFullyLoaded()) {
-            return WailaDisplay.of(this);
+            return WailaDisplay.of(this, player);
         }
 
         double sugarcaneProportion = fluidAmount(PylonFluids.SUGARCANE) / fluidCapacity(PylonFluids.SUGARCANE);
         int sugarcaneAmount = sugarcaneProportion < RebarUtils.FLUID_EPSILON
                 ? 0
                 : Math.min(sugarcaneCapacity, (int) (sugarcaneProportion * sugarcaneCapacity) + 1);
-        return WailaDisplay.of(this)
+        return WailaDisplay.of(this, player)
                 .add(new ProgressBar()
                         .proportion(sugarcaneProportion)
                         .barColor(PylonFluids.SUGARCANE)
