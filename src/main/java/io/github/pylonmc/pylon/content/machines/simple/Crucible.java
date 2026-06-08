@@ -231,7 +231,7 @@ public final class Crucible extends RebarBlock implements
                 .add(crucibleContent == null
                         ? Component.translatable("pylon.item.crucible.empty")
                         : crucibleContent.effectiveName()
-                                .append(Component.text(" "))
+                                .append(Component.text(" x"))
                                 .append(Component.text(crucibleContent.getAmount()))
                 );
     }
