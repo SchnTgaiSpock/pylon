@@ -227,7 +227,7 @@ public class CrudeAlloyFurnace extends RebarBlock implements
         inputInventory.removeFirst(new MachineUpdateReason(), recipe.input2().getAmount(), recipe.input2()::matchesIgnoringAmount);
 
         startRecipe(recipe, recipe.timeTicks());
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(recipe.result().asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(recipe.result()).clearLore());
 
         return true;
     }

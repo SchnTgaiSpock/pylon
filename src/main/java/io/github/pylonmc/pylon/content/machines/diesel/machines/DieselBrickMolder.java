@@ -214,7 +214,7 @@ public class DieselBrickMolder extends RebarBlock implements
         }
 
         startRecipe(recipe, recipe.moldingCycles() * tickInterval * ticksPerMoldingCycle);
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
         getHeldEntityOrThrow(ItemDisplay.class, "item").setItemStack(stack);
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract(recipe.input().getAmount()));
         return true;

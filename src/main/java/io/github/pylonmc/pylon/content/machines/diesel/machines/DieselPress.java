@@ -222,7 +222,7 @@ public class DieselPress extends RebarBlock implements
         }
 
         startRecipe(recipe, (int) (timePerItem * 20));
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract(recipe.input().getAmount()));
         return true;
     }

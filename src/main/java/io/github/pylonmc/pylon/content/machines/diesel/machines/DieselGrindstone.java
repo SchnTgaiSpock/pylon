@@ -226,7 +226,7 @@ public class DieselGrindstone extends RebarBlock implements
         }
 
         startRecipe(recipe, recipe.cycles() * Grindstone.CYCLE_DURATION_TICKS);
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract(recipe.input().getAmount()));
         return true;
     }

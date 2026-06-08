@@ -224,7 +224,7 @@ public class DieselPipeBender extends RebarBlock implements
         }
 
         startRecipe(recipe, (int) Math.round(recipe.timeTicks() / speed));
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
         getHeldEntityOrThrow(ItemDisplay.class, "item").setItemStack(stack);
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract(recipe.input().getAmount()));
         return true;

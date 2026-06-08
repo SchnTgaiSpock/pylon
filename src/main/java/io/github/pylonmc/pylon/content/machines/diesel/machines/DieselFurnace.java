@@ -207,7 +207,7 @@ public class DieselFurnace extends RebarBlock implements
         }
 
         startRecipe(recipe, recipeTime);
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract());
         return true;
     }
