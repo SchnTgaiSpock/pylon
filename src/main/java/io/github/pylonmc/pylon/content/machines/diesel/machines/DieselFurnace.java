@@ -2,7 +2,6 @@ package io.github.pylonmc.pylon.content.machines.diesel.machines;
 
 import com.destroystokyo.paper.ParticleBuilder;
 import io.github.pylonmc.pylon.PylonFluids;
-import io.github.pylonmc.pylon.util.PylonUtils;
 import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.FluidBufferRebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.DirectionalRebarBlock;
@@ -33,7 +32,6 @@ import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
@@ -207,7 +205,7 @@ public class DieselFurnace extends RebarBlock implements
         }
 
         startRecipe(recipe, recipeTime);
-        getRecipeProgressItem().setItem(ItemStackBuilder.singleton(stack).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.asOne(stack).clearLore());
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract());
         return true;
     }

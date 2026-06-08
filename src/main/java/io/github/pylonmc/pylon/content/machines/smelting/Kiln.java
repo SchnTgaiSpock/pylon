@@ -300,7 +300,7 @@ public class Kiln extends RebarBlock implements
                     .clearLore()
             );
         } else if (recipe.outputItem() != null) {
-            getRecipeProgressItem().setItem(ItemStackBuilder.singleton(recipe.outputItem())
+            getRecipeProgressItem().setItem(ItemStackBuilder.asOne(recipe.outputItem())
                     .clearLore()
             );
         }
