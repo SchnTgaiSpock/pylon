@@ -139,7 +139,7 @@ public abstract class CoreDrill extends RebarBlock implements
         for (int j = 0; j < 4; j++) {
             double rotation = (j / 4.0) * 2.0 * Math.PI;
             Bukkit.getScheduler().runTaskLater(Pylon.getInstance(), () -> {
-                if (!new BlockPosition(getBlock()).getChunk().isLoaded()) {
+                if (!isChunkLoaded()) {
                     return;
                 }
 
