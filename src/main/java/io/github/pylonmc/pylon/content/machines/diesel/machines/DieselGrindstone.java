@@ -1,7 +1,6 @@
 package io.github.pylonmc.pylon.content.machines.diesel.machines;
 
 import com.destroystokyo.paper.ParticleBuilder;
-import io.github.pylonmc.pylon.PylonConfig;
 import io.github.pylonmc.pylon.PylonFluids;
 import io.github.pylonmc.pylon.content.machines.simple.Grindstone;
 import io.github.pylonmc.pylon.recipes.GrindstoneRecipe;
@@ -225,7 +224,7 @@ public class DieselGrindstone extends RebarBlock implements
         }
 
         startRecipe(recipe, recipe.cycles() * Grindstone.CYCLE_DURATION_TICKS);
-        getRecipeProgressItem().setItem(ItemStackBuilder.of(stack.asOne()).clearLore());
+        getRecipeProgressItem().setItem(ItemStackBuilder.asOne(stack).clearLore());
         inputInventory.setItem(new MachineUpdateReason(), 0, stack.subtract(recipe.input().getAmount()));
         return true;
     }

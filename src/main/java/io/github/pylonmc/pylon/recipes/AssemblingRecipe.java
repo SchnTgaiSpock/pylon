@@ -151,7 +151,7 @@ public record AssemblingRecipe(
         for (int i = 0; i < steps.size(); i++) {
             Step step = steps.get(i);
             if (step != null) {
-                ItemStack stack = ItemStackBuilder.of(step.icon)
+                ItemStack stack = ItemStackBuilder.copyOf(step.icon)
                         .name(Component.translatable("pylon.gui.assembly_table.step").arguments(
                                 RebarArgument.of("step_index", i + 1),
                                 RebarArgument.of("tool", Component.translatable("pylon.gui.assembly_table.tools." + step.tool)),

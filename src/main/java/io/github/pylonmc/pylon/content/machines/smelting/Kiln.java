@@ -26,6 +26,7 @@ import io.github.pylonmc.rebar.util.gui.ProgressItem;
 import io.github.pylonmc.rebar.util.gui.unit.UnitFormat;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
@@ -299,7 +300,7 @@ public class Kiln extends RebarBlock implements
                     .clearLore()
             );
         } else if (recipe.outputItem() != null) {
-            getRecipeProgressItem().setItem(ItemStackBuilder.of(recipe.outputItem())
+            getRecipeProgressItem().setItem(ItemStackBuilder.asOne(recipe.outputItem())
                     .clearLore()
             );
         }
