@@ -8,7 +8,6 @@ import io.github.pylonmc.rebar.block.RebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.DirectionalRebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.FluidBufferRebarBlock;
 import io.github.pylonmc.rebar.block.interfaces.SimpleRebarMultiblock;
-import io.github.pylonmc.rebar.block.context.BlockBreakContext;
 import io.github.pylonmc.rebar.block.context.BlockCreateContext;
 import io.github.pylonmc.rebar.datatypes.RebarSerializers;
 import io.github.pylonmc.rebar.entity.display.ItemDisplayBuilder;
@@ -17,7 +16,6 @@ import io.github.pylonmc.rebar.fluid.RebarFluid;
 import io.github.pylonmc.rebar.i18n.RebarArgument;
 import io.github.pylonmc.rebar.util.ProgressBar;
 import io.github.pylonmc.rebar.util.RebarUtils;
-import io.github.pylonmc.rebar.waila.RebarBlockWailaSupplier;
 import io.github.pylonmc.rebar.waila.Waila;
 import io.github.pylonmc.rebar.waila.WailaDisplay;
 import net.kyori.adventure.text.Component;
@@ -78,7 +76,7 @@ public abstract class FluidHatch extends RebarBlock implements
         if (formed) {
             FluidTankCasing casing = BlockStorage.getAs(FluidTankCasing.class, getBlock().getRelative(BlockFace.UP));
             Preconditions.checkState(casing != null);
-            Waila.addWailaOverride(casing.getBlock(), new RebarBlockWailaSupplier(this));
+            Waila.addWailaOverride(casing.getBlock(), this);
             if (fluid != null) {
                 setFluidCapacity(fluid, casing.capacity);
             }
